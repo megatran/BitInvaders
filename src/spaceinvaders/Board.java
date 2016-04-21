@@ -16,9 +16,20 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Board extends JPanel implements Runnable, Commons {
+public class Board /*extends JPanel implements Runnable, Commons*/ {
+	ArrayList<Alien> aliens;
 	
-	 private Dimension d;
+	public  Board(){
+		aliens = new ArrayList<Alien>();
+		loadImages();
+	}
+	public void setAliens(ArrayList<Alien> replacementlist){
+		aliens = replacementlist;
+	}
+	public ArrayList<Alien> getAliens(){
+		return aliens;
+	}
+	 /*private Dimension d;
 	    private ArrayList aliens;
 	    private Player player;
 	    private Shot shot;
@@ -355,5 +366,5 @@ public class Board extends JPanel implements Runnable, Commons {
 	          }
 	        }
 	    }
-
+*/
 }

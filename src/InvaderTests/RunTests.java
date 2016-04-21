@@ -7,11 +7,13 @@ import javax.swing.ImageIcon;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import spaceinvaders.Board;
+
 public class RunTests {
-	
+	Board board;
 	@BeforeClass
-	public static void setUp() {
-		spaceinvaders.Board board = new spaceinvaders.Board();
+	public void setUp() {
+	board = new Board();
 	}
 
 		
@@ -29,6 +31,7 @@ public class RunTests {
 	public void testInit(){
 		//test that the Aliens alien array is not empty
 		//spaceinvaders.Board.
+		assertTrue(board.getAliens().size() !=0);
 	}
 	
 	public void testGameOver(){
