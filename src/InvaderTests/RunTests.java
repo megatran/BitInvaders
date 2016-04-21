@@ -21,11 +21,18 @@ public class RunTests {
 
 	@Test
 	public void testImage() {
-			try {
-				//ImageIcon ii = new ImageIcon(this.getClass().getResource("../spacepix/alien.png"));
-			} catch (Exception NoImage) {
-
-			} 
+		// board was "this", might have to change.
+		ImageIcon ii = new ImageIcon(board.getClass().getResource("../spacepix/alien.png"));
+		Alien alien = new Alien(0, 0);
+		alien.setImage(ii.getImage());
+		if(alien.getImage() != null)
+			assertTrue("This is true", true);
+		Player p = new Player();
+		if(p.getImage() != null)
+			assertTrue("This is true", true);
+		Shot shot = new Shot();
+		if(shot.getImage() != null)
+			assertTrue("This is true", true);
 	}
 	
 	public void testInit(){
