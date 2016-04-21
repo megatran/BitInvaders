@@ -6,12 +6,23 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Alien extends Sprite {
-
+	int speed;
 	Color color;
-	public Alien(int row, int col, Color color){
+	public Alien(int row, int col, int speed){
 		super(row, col);
-		this.color = color;
+		this.speed = speed;
+		setSpeed();
 	}
+	public void setSpeed(){
+		switch (speed){
+		case 1: color=Color.BLUE;
+		case 2: color = Color.RED;
+		}
+	}
+	public void move(){
+		
+	}
+
 	/* private Bomb bomb;
 	    private final String shot = "../spacepix/alien.png";
 

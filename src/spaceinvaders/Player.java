@@ -20,7 +20,7 @@ public class Player extends Sprite{
 			death=true;
 		}
 	}
-	public void moreHealth(){
+	public void addHealth(){
 		//numLives++;
 	}
 	public boolean isDead(){

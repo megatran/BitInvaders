@@ -9,6 +9,12 @@ public class Sprite {
 		this.row=row;
 		this.col=col;
 	}
+	public int getRow(){
+		return row;
+	}
+	public int getCol(){
+		return col;
+	}
 	/*private boolean visible;
     private Image image;
     protected int x;
