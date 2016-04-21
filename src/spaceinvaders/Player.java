@@ -83,4 +83,16 @@ public class Player extends Sprite{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void updateInput() {
+		// TODO Auto-generated method stub
+		
+	}
+	public String getInput() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void flushInput() {
+		// TODO Auto-generated method stub
+		
+	}
 }

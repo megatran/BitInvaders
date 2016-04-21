@@ -11,12 +11,15 @@ import java.awt.event.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Board /*extends JPanel implements Runnable, Commons*/ {
+	Queue<Alien> alienQueue = new PriorityQueue<Alien>();
 	ArrayList<Alien> aliens;
 	Player player;
 	
@@ -379,4 +382,12 @@ public class Board /*extends JPanel implements Runnable, Commons*/ {
 	        }
 	    }
 */
+	public boolean checkInput() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public Queue<Alien> getAlienQueue() {
+		return alienQueue;
+	}
+	
 }
