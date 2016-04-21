@@ -4,9 +4,29 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
-public class Player extends Sprite implements Commons{
-	
-	 private final int START_Y = 280; 
+public class Player extends Sprite{
+	public boolean death = false;
+	public static int numLives=3;
+	public Player(int row, int col){
+		super(row, col);
+		
+	}
+	public int getNumLives(){
+		return numLives;
+	}
+	public void maim(){
+		//numLives--;
+		if (numLives == 0){
+			death=true;
+		}
+	}
+	public void moreHealth(){
+		//numLives++;
+	}
+	public boolean isDead(){
+		return death;
+	}
+	/* private final int START_Y = 280; 
 	    private final int START_X = 270;
 
 	    private final String player = "../spacepix/player.png";
@@ -58,5 +78,9 @@ public class Player extends Sprite implements Commons{
 	            dx = 0;
 	        }
 	    }
-
+*/
+	public Object getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

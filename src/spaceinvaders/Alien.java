@@ -1,10 +1,18 @@
 package spaceinvaders;
 
+import java.awt.Color;
+import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 public class Alien extends Sprite {
 
-	 private Bomb bomb;
+	Color color;
+	public Alien(int row, int col, Color color){
+		super(row, col);
+		this.color = color;
+	}
+	/* private Bomb bomb;
 	    private final String shot = "../spacepix/alien.png";
 
 	    public Alien(int x, int y) {
@@ -46,5 +54,13 @@ public class Alien extends Sprite {
 	            return destroyed;
 	        }
 	    }
-	    
+	  */
+	public void setImage(Image image) {
+		// TODO Auto-generated method stub
+		
+	}
+	public Object getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}  
 }

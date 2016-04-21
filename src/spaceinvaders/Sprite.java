@@ -3,8 +3,13 @@ package spaceinvaders;
 import java.awt.Image;
 
 public class Sprite {
-	
-	private boolean visible;
+	int row;
+	int col;
+	public Sprite(int row, int col){
+		this.row=row;
+		this.col=col;
+	}
+	/*private boolean visible;
     private Image image;
     protected int x;
     protected int y;
@@ -57,5 +62,5 @@ public class Sprite {
     public boolean isDying() {
         return this.dying;
     }
-
+*/
 }

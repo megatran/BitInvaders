@@ -18,16 +18,28 @@ import javax.swing.JPanel;
 
 public class Board /*extends JPanel implements Runnable, Commons*/ {
 	ArrayList<Alien> aliens;
+	Player player;
 	
 	public  Board(){
 		aliens = new ArrayList<Alien>();
+		player = new Player(0,0);
+		loadAliens();
 		loadImages();
+	}
+	public void loadAliens(){
+		
+	}
+	public void loadImages(){
+		
 	}
 	public void setAliens(ArrayList<Alien> replacementlist){
 		aliens = replacementlist;
 	}
 	public ArrayList<Alien> getAliens(){
 		return aliens;
+	}
+	public Player getPlayer(){
+		return player;
 	}
 	 /*private Dimension d;
 	    private ArrayList aliens;
