@@ -14,9 +14,11 @@ import java.awt.event.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.*;
 
@@ -24,7 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
-	Queue<Alien> alienQueue = new PriorityQueue<Alien>();
+	Queue<Alien> alienQueue = new LinkedList<Alien>();
 	ArrayList<Alien> aliens;
 	Alien testAlien;
 	Player player;
@@ -48,10 +50,11 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		timer = new Timer(DELAY, this);
 		timer.start();
 		aliens = new ArrayList<Alien>();
-		alienQueue = new PriorityQueue<Alien>();
+		alienQueue = new LinkedList<Alien>();
 		player = new Player(0,0);
 		
 		testAlien = new Alien(10);
+		alienQueue.add(testAlien);
 		loadAliens();
 		loadImages();
 
@@ -64,6 +67,18 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 	public void loadImages(){
 		
+	}
+	public boolean randomAdd(int min, int max){
+		Random rand = null;
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+		int r = ThreadLocalRandom.current().nextInt(min, max + 1);
+	    //int randomNum = rand.nextInt((max - min) + 1) + min;
+	    
+	    if(r == max)
+	    	return true;
+	    return false;
 	}
 	public void setAliens(ArrayList<Alien> replacementlist){
 		aliens = replacementlist;
@@ -113,14 +128,23 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	private void doDrawing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		testAlien.drawAlien(g);
+		for(Alien a: alienQueue){
+			a.drawAlien(g);
+		}
 	}
 
 	@Override
     public void actionPerformed(ActionEvent e) {
-        
+		
+		if(randomAdd(1,4)){
+        	Alien newA = new Alien(10);
+        	alienQueue.add(newA);
+		}
 		testCount++;
 		//System.out.println(testCount);
-		testAlien.move();
+		for(Alien a: alienQueue){
+			a.move();
+		}
         repaint();  
     }
 	

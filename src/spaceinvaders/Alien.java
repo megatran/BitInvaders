@@ -1,6 +1,7 @@
 package spaceinvaders;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -18,6 +19,10 @@ public class Alien extends Sprite {
     private int speed;
     private int x;
     private int y;
+    private String myBits;
+    
+    private static int id = 0;
+    
     private Image image;
     private static final int WIDTH = 35;
     private static final int HEIGHT = 20;
@@ -29,10 +34,31 @@ public class Alien extends Sprite {
 		this.dy = speed;
 		setSpeed();
 		initAlien();
+		this.id = id++;
 	}
 	
 	private void randomize(){
-		x = randomInt(1,1);
+		x = randomInt(0,Commons.BOARD_WIDTH - WIDTH);
+		y = OFFSET;
+		int binary = randomInt(0,15);
+		myBits = Integer.toString(binary, 2);
+		if(myBits.length() < 4)
+			addPadding(myBits);
+	}
+	public void addPadding(String s){
+		String temp = myBits;
+		if(s.length() == 1){
+			String t = "000";
+			myBits = t + temp;
+		}
+		if(s.length() == 2){
+			String t = "00";
+			myBits = t + temp;
+		}
+		if(s.length() == 3){
+			String t = "0";
+			myBits = t + temp;
+		}
 	}
 	
 	public int randomInt(int min, int max){
@@ -40,7 +66,7 @@ public class Alien extends Sprite {
 
 	    // nextInt is normally exclusive of the top value,
 	    // so add 1 to make it inclusive
-	    int randomNum = rand.nextInt((max - min) + 1) + min;
+	    int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
 
 	    return randomNum;
 	}
@@ -49,8 +75,7 @@ public class Alien extends Sprite {
 		String path = "/images/alien.png";
 		ImageIcon ii = new ImageIcon(path);
         image = ii.getImage();
-        x = 100;
-        y = 100; 
+        randomize(); 
 	}
 	public void setSpeed(){
 		switch (speed){
@@ -80,7 +105,7 @@ public class Alien extends Sprite {
 			g.setColor(Color.YELLOW);
 			g.drawRect(x, y, WIDTH, HEIGHT);
 			g.setColor(Color.YELLOW);
-			g.drawString("1010", x + OFFSET, y + HEIGHT - OFFSET);
+			g.drawString(myBits, x + OFFSET, y + HEIGHT - OFFSET);
 		}
 	}
 	
@@ -89,4 +114,10 @@ public class Alien extends Sprite {
 		// TODO Auto-generated method stub
 		
 	}
+
+//	@Override
+//	public int compareTo(Alien arg0) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 }
