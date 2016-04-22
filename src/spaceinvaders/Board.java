@@ -77,6 +77,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	public boolean checkInput() {
 		// TODO Auto-generated method stub
+		
 		return false;
 	}
 	public Queue<Alien> getAlienQueue() {
@@ -111,7 +112,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	
 	private void doDrawing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);        
+		testAlien.drawAlien(g);
 	}
 
 	@Override

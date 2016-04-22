@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 public class Player extends Sprite{
 	public boolean death = false;
 	public static int numLives=3;
+	private String input;
 	public Player(int row, int col){
 		super(row, col);
 		

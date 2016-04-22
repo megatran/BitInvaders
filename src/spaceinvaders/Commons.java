@@ -2,8 +2,8 @@ package spaceinvaders;
 
 public interface Commons {
 	
-	public static final int BOARD_WIDTH = 358;
-    public static final int BOARD_HEIGTH = 350;
+	public static final int BOARD_WIDTH = 300;
+    public static final int BOARD_HEIGTH = 500;
     public static final int GROUND = 290;
     public static final int BOMB_HEIGHT = 5;
     public static final int ALIEN_HEIGHT = 12;

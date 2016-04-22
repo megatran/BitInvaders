@@ -12,11 +12,14 @@ public class Alien extends Sprite {
 	int speed;
 	Color color;
 	
-	private int dx = 1;
-    private int dy = 1;
+	private int dx = 0;
+    private int dy = 10;
     private int x;
     private int y;
     private Image image;
+    private static final int WIDTH = 20;
+    private static final int HEIGHT = 20;
+    
 	
 	public Alien(int row, int col, int speed){
 		super(row, col);
@@ -54,50 +57,16 @@ public class Alien extends Sprite {
 	public Image getImage() {
 		return image;
 	}
-
-	/* private Bomb bomb;
-	    private final String shot = "../spacepix/alien.png";
-
-	    public Alien(int x, int y) {
-	        this.x = x;
-	        this.y = y;
-
-	        bomb = new Bomb(x, y);
-	        ImageIcon ii = new ImageIcon(this.getClass().getResource(shot));
-	        setImage(ii.getImage());
-
-	    }
-
-	    public void act(int direction) {
-	        this.x += direction;
-	    }
-
-	    public Bomb getBomb() {
-	        return bomb;
-	    }
-
-	    public class Bomb extends Sprite {
-
-	        private final String bomb = "../spacepix/bomb.png";
-	        private boolean destroyed;
-
-	        public Bomb(int x, int y) {
-	            setDestroyed(true);
-	            this.x = x;
-	            this.y = y;
-	            ImageIcon ii = new ImageIcon(this.getClass().getResource(bomb));
-	            setImage(ii.getImage());
-	        }
-
-	        public void setDestroyed(boolean destroyed) {
-	            this.destroyed = destroyed;
-	        }
-
-	        public boolean isDestroyed() {
-	            return destroyed;
-	        }
-	    }
-	  */
+	
+	public void drawAlien(Graphics g){
+		if(!dying){
+			g.setColor(Color.YELLOW);
+			//g.fillRect(x, y, WIDTH, HEIGHT);
+			g.drawString("1010101010", x, y);
+		}
+	}
+	
+	
 	public void setImage(Image image) {
 		// TODO Auto-generated method stub
 		
