@@ -1,31 +1,48 @@
 package spaceinvaders;
 
+import java.util.Random;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Alien extends Sprite {
-	int speed;
 	Color color;
 	
 	private int dx = 0;
     private int dy = 10;
+    private int speed;
     private int x;
     private int y;
     private Image image;
-    private static final int WIDTH = 20;
+    private static final int WIDTH = 35;
     private static final int HEIGHT = 20;
+    private static final int OFFSET = 5;
     
 	
-	public Alien(int row, int col, int speed){
-		super(row, col);
+	public Alien(int speed){
 		this.speed = speed;
+		this.dy = speed;
 		setSpeed();
 		initAlien();
+	}
+	
+	private void randomize(){
+		x = randomInt(1,1);
+	}
+	
+	public int randomInt(int min, int max){
+		Random rand = null;
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
 	}
 	
 	private void initAlien(){
@@ -43,7 +60,7 @@ public class Alien extends Sprite {
 	}
 	public void move() {
 		x += dx;
-		y += dy;
+		y += speed;
 	}
 
 	public int getX() {
@@ -61,8 +78,9 @@ public class Alien extends Sprite {
 	public void drawAlien(Graphics g){
 		if(!dying){
 			g.setColor(Color.YELLOW);
-			//g.fillRect(x, y, WIDTH, HEIGHT);
-			g.drawString("1010101010", x, y);
+			g.drawRect(x, y, WIDTH, HEIGHT);
+			g.setColor(Color.YELLOW);
+			g.drawString("1010", x + OFFSET, y + HEIGHT - OFFSET);
 		}
 	}
 	

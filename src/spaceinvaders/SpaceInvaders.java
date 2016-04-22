@@ -1,5 +1,7 @@
 package spaceinvaders;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 public class SpaceInvaders extends JFrame implements Commons {
@@ -11,7 +13,8 @@ public class SpaceInvaders extends JFrame implements Commons {
         add(board);
         setTitle("Space Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(BOARD_WIDTH, BOARD_HEIGTH);
+        setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGTH));
+        pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);

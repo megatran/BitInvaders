@@ -51,7 +51,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		alienQueue = new PriorityQueue<Alien>();
 		player = new Player(0,0);
 		
-		testAlien = new Alien(0,0,1);
+		testAlien = new Alien(10);
 		loadAliens();
 		loadImages();
 
@@ -93,7 +93,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
       g.setColor(Color.green);   
 
       if (ingame) {
-        g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
+        //g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
         g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
      
         /*
@@ -119,7 +119,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
     public void actionPerformed(ActionEvent e) {
         
 		testCount++;
-		System.out.println(testCount);
+		//System.out.println(testCount);
 		testAlien.move();
         repaint();  
     }
