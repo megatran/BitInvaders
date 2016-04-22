@@ -80,10 +80,10 @@ public class Player extends Sprite{
 	        }
 	    }
 */
-	public Object getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public Object getImage() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	public void updateInput() {
 		// TODO Auto-generated method stub
 		

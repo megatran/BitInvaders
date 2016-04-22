@@ -24,9 +24,9 @@ public Shot(int row, int col) {
         setY(y - V_SPACE);
     }
 */
-	public Object getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public Object getImage() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }
