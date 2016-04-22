@@ -21,7 +21,7 @@ public class Sprite {
     protected int y;
     protected boolean dying;
     protected int dx;
-    /*
+    
     public Sprite() {
         visible = true;
     }
@@ -64,7 +64,7 @@ public class Sprite {
     public void setDying(boolean dying) {
         this.dying = dying;
     }
-*/
+
     public boolean isDying() {
         return this.dying;
     }

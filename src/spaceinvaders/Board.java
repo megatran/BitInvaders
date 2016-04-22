@@ -5,7 +5,10 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -15,19 +18,46 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 
+import javax.swing.*;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class Board /*extends JPanel implements Runnable, Commons*/ {
+public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
 	Queue<Alien> alienQueue = new PriorityQueue<Alien>();
 	ArrayList<Alien> aliens;
+	Alien testAlien;
 	Player player;
+	boolean ingame = true;
+	private Timer timer;
+	public static final int SPEED = 1000;
+	private final int DELAY = 1000;
+	
+	// testing
+	private Dimension d;
+	int testCount = 0;
 	
 	public  Board(){
+		initBoard();
+	}
+	
+	public void initBoard(){
+		// adding timer
+		//addKeyListener(new TAdapter());
+		setFocusable(true);
+		timer = new Timer(DELAY, this);
+		timer.start();
 		aliens = new ArrayList<Alien>();
+		alienQueue = new PriorityQueue<Alien>();
 		player = new Player(0,0);
+		
+		testAlien = new Alien(0,0,1);
 		loadAliens();
 		loadImages();
+
+		// testing
+		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGTH);
+		setBackground(Color.black);
 	}
 	public void loadAliens(){
 		
@@ -44,7 +74,58 @@ public class Board /*extends JPanel implements Runnable, Commons*/ {
 	public Player getPlayer(){
 		return player;
 	}
-	 /*private Dimension d;
+
+	public boolean checkInput() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public Queue<Alien> getAlienQueue() {
+		return alienQueue;
+	}
+	
+	public void paint(Graphics g)
+    {
+      super.paint(g);
+      
+      g.setColor(Color.black);
+      g.fillRect(0, 0, d.width, d.height);
+      g.setColor(Color.green);   
+
+      if (ingame) {
+        g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
+        g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
+     
+        /*
+        drawAliens(g);
+        drawPlayer(g);
+        drawShot(g);
+        drawBombing(g);
+        */
+      }
+      
+      doDrawing(g);
+      g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
+      Toolkit.getDefaultToolkit().sync();
+      g.dispose();
+    }
+	
+	private void doDrawing(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);        
+	}
+
+	@Override
+    public void actionPerformed(ActionEvent e) {
+        
+		testCount++;
+		System.out.println(testCount);
+		testAlien.move();
+        repaint();  
+    }
+	
+	
+	
+	 /* private Dimension d;
 	    private ArrayList aliens;
 	    private Player player;
 	    private Shot shot;
@@ -382,12 +463,4 @@ public class Board /*extends JPanel implements Runnable, Commons*/ {
 	        }
 	    }
 */
-	public boolean checkInput() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	public Queue<Alien> getAlienQueue() {
-		return alienQueue;
-	}
-	
 }

@@ -3,10 +3,12 @@ package spaceinvaders;
 import javax.swing.JFrame;
 
 public class SpaceInvaders extends JFrame implements Commons {
+	Board board;
 	
 	public SpaceInvaders()
     {
-        add(new Board());
+		board = new Board();
+        add(board);
         setTitle("Space Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(BOARD_WIDTH, BOARD_HEIGTH);
@@ -16,6 +18,7 @@ public class SpaceInvaders extends JFrame implements Commons {
     }
 
     public static void main(String[] args) {
+    	
         new SpaceInvaders();
     }
 
