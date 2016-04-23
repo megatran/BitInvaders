@@ -1,17 +1,13 @@
-package spaceinvaders;
+package bitinvaders;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.util.Random;
-
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
-public class Alien extends Sprite {
+
+public class BitAlien extends Sprite {
 	Color color;
 	
 	private int dx = 0;
@@ -23,13 +19,12 @@ public class Alien extends Sprite {
     
     private static int id = 0;
     
-    private Image image;
     private static final int WIDTH = 35;
     private static final int HEIGHT = 20;
     private static final int OFFSET = 5;
     
 	
-	public Alien(int speed){
+	public BitAlien(int speed){
 		this.speed = speed;
 		this.dy = speed;
 		setSpeed();
@@ -72,10 +67,7 @@ public class Alien extends Sprite {
 	}
 	
 	private void initAlien(){
-		String path = "/images/alien.png";
-		ImageIcon ii = new ImageIcon(path);
-        image = ii.getImage();
-        randomize(); 
+
 	}
 	public void setSpeed(){
 		switch (speed){
@@ -96,9 +88,6 @@ public class Alien extends Sprite {
 		return y;
 	}
 
-	public Image getImage() {
-		return image;
-	}
 	
 	public void drawAlien(Graphics g){
 		if(!dying){
@@ -110,10 +99,6 @@ public class Alien extends Sprite {
 	}
 	
 	
-	public void setImage(Image image) {
-		// TODO Auto-generated method stub
-		
-	}
 
 //	@Override
 //	public int compareTo(Alien arg0) {

@@ -10,10 +10,10 @@ import javax.swing.ImageIcon;
 import org.junit.Before;
 import org.junit.Test;
 
-import spaceinvaders.Alien;
-import spaceinvaders.Board;
-import spaceinvaders.Player;
-import spaceinvaders.Shot;
+import bitinvaders.BitAlien;
+import bitinvaders.Board;
+import bitinvaders.Player;
+import bitinvaders.Shot;
 
 public class RunTests {
 	Board board;
@@ -24,11 +24,11 @@ public class RunTests {
 
 	
 	public void testAlienmovement(){
-		Alien slow = new Alien(10, 0, 1);
+		BitAlien slow = new BitAlien(10, 0, 1);
 		slow.move();
 		assertTrue(slow.getRow() == 9);
 		assertTrue(slow.getCol() == 0);
-		Alien fast = new Alien(10, 0, 2);
+		BitAlien fast = new BitAlien(10, 0, 2);
 		fast.move();
 		assertTrue(fast.getRow() == 8);
 		assertTrue(fast.getCol() == 0);
@@ -37,17 +37,17 @@ public class RunTests {
 	public void testInit(){
 		//test that the Aliens alien array is not empty
 		//spaceinvaders.Board.
-		ArrayList<Alien> boardaliens = board.getAliens();
+		ArrayList<BitAlien> boardaliens = board.getAliens();
 		assertTrue(boardaliens.size() !=0);
-		assertTrue(boardaliens.contains(new Alien(0,0, 1)));
-		assertTrue(boardaliens.contains(new Alien(5,4, 1)));
+		assertTrue(boardaliens.contains(new BitAlien(0,0, 1)));
+		assertTrue(boardaliens.contains(new BitAlien(5,4, 1)));
 	}
 	
 	@Test
 	public void testImage() {
 		// board was "this", might have to change.
 		ImageIcon ii = new ImageIcon(board.getClass().getResource("../spacepix/alien.png"));
-		Alien alien = new Alien(0, 0, 0);
+		BitAlien alien = new BitAlien(0, 0, 0);
 		alien.setImage(ii.getImage());
 		if(alien.getImage() != null)
 			assertTrue("This is true", true);
@@ -75,7 +75,7 @@ public class RunTests {
 	}
 	@Test
 	public void testConversion(){
-		Alien a1 = new Alien(0,0, 0);
+		BitAlien a1 = new BitAlien(0,0, 0);
 		
 		Player p = new Player(0, 0);
 		p.updateInput();

@@ -1,4 +1,4 @@
-package spaceinvaders;
+package bitinvaders;
 
 public interface Commons {
 	

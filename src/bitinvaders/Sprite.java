@@ -1,4 +1,4 @@
-package spaceinvaders;
+package bitinvaders;
 
 import java.awt.Image;
 

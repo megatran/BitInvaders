@@ -1,18 +1,22 @@
-package spaceinvaders;
+package bitinvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
-public class SpaceInvaders extends JFrame implements Commons {
+public class BitInvaders extends JFrame implements Commons {
 	Board board;
 	
-	public SpaceInvaders()
+	public BitInvaders()
     {
 		board = new Board();
 		//setLayout(new GridLayout(0,1,0,3));
@@ -43,11 +47,22 @@ public class SpaceInvaders extends JFrame implements Commons {
 		panelBottom.add(lifeLabel);
 		panelBottom.add(lifeOutput);
 		
+		//userInput textfield only accept numeric keypress by user DocumentFilter to check!
+		((AbstractDocument)userInput.getDocument()).setDocumentFilter(new DigitDocumentFilter());
+		//the user input will accept numeric input from the user when he/she presses 'Enter'
+		userInput.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Enter Pressed: "+userInput.getText());
+				userInput.setText("");
+			}
+		});
+		
 		return panelBottom;
 	}
+	
     public static void main(String[] args) {
     	
-        new SpaceInvaders();
+        new BitInvaders();
     }
 
 }
