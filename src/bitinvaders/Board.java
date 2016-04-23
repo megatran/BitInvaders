@@ -28,7 +28,7 @@ import javax.swing.JPanel;
 public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
 	Queue<BitAlien> alienQueue = new LinkedList<BitAlien>();
 	ArrayList<BitAlien> aliens;
-	BitAlien testAlien;
+//	BitAlien testAlien;
 	Player player;
 	boolean ingame = true;
 	private Timer timer;
@@ -52,8 +52,8 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		alienQueue = new LinkedList<BitAlien>();
 		player = new Player(0,0);
 		
-		testAlien = new BitAlien(10);
-		alienQueue.add(testAlien);
+		//testAlien = new BitAlien(10);
+		//alienQueue.add(testAlien);
 
 		// testing
 		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGTH);
@@ -86,6 +86,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		boolean found = false;
 		for (BitAlien a: alienQueue) {
 			if (keyTyped == a.getMyDecimalValue()) {
+				alienQueue.remove(a);
 				found = true;
 				break;
 			} else {
@@ -94,9 +95,12 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
 		if (found) {
 			System.out.println("You found " + keyTyped);
+			repaint();
+			
 		} else {
 			System.out.println(keyTyped + " is INCORRECT");
 		}
+
 	}
 	public Queue<BitAlien> getAlienQueue() {
 		return alienQueue;
@@ -112,7 +116,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
       if (ingame) {
         //g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
-        g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
+        //g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
      
         /*
         drawAliens(g);
@@ -123,14 +127,14 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
       }
       
       doDrawing(g);
-      g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
+     // g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
       Toolkit.getDefaultToolkit().sync();
       g.dispose();
     }
 	
 	private void doDrawing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		testAlien.drawAlien(g);
+		//testAlien.drawAlien(g);
 		for(BitAlien a: alienQueue){
 			a.drawAlien(g);
 		}
