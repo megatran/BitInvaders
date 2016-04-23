@@ -45,7 +45,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	
 	public void initBoard(){
 		// adding timer
-		//addKeyListener(new TAdapter());
 		setFocusable(true);
 		timer = new Timer(DELAY, this);
 		timer.start();
