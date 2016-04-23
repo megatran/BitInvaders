@@ -54,19 +54,12 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		
 		testAlien = new BitAlien(10);
 		alienQueue.add(testAlien);
-		loadAliens();
-		loadImages();
 
 		// testing
 		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGTH);
 		setBackground(Color.black);
 	}
-	public void loadAliens(){
-		
-	}
-	public void loadImages(){
-		
-	}
+
 	public boolean randomAdd(int min, int max){
 		Random rand = null;
 
@@ -89,10 +82,21 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		return player;
 	}
 
-	public boolean checkInput() {
-		// TODO Auto-generated method stub
-		
-		return false;
+	public void checkInput(int keyTyped) {
+		boolean found = false;
+		for (BitAlien a: alienQueue) {
+			if (keyTyped == a.getMyDecimalValue()) {
+				found = true;
+				break;
+			} else {
+				found = false;
+			}
+		}
+		if (found) {
+			System.out.println("You found " + keyTyped);
+		} else {
+			System.out.println(keyTyped + " is INCORRECT");
+		}
 	}
 	public Queue<BitAlien> getAlienQueue() {
 		return alienQueue;

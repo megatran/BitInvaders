@@ -4,8 +4,10 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.imageio.ImageIO;
 
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class BitAlien extends Sprite {
 	Color color;
@@ -16,6 +18,7 @@ public class BitAlien extends Sprite {
     private int x;
     private int y;
     private String myBits;
+    private int myDecimalValue;
     
     private static int id = 0;
     
@@ -32,11 +35,15 @@ public class BitAlien extends Sprite {
 		this.id = id++;
 	}
 	
+	public int getMyDecimalValue() {
+		return myDecimalValue;
+	}
+	
 	private void randomize(){
 		x = randomInt(0,Commons.BOARD_WIDTH - WIDTH);
 		y = OFFSET;
-		int binary = randomInt(0,15);
-		myBits = Integer.toString(binary, 2);
+		myDecimalValue = randomInt(0,15);
+		myBits = Integer.toString(myDecimalValue, 2);
 		if(myBits.length() < 4)
 			addPadding(myBits);
 	}
@@ -67,7 +74,7 @@ public class BitAlien extends Sprite {
 	}
 	
 	private void initAlien(){
-
+        randomize(); 
 	}
 	public void setSpeed(){
 		switch (speed){
@@ -99,6 +106,7 @@ public class BitAlien extends Sprite {
 	}
 	
 	
+
 
 //	@Override
 //	public int compareTo(Alien arg0) {

@@ -52,7 +52,8 @@ public class BitInvaders extends JFrame implements Commons {
 		//the user input will accept numeric input from the user when he/she presses 'Enter'
 		userInput.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Enter Pressed: "+userInput.getText());
+				//System.out.println("Enter Pressed: "+userInput.getText());
+				board.checkInput(Integer.parseInt(userInput.getText()));
 				userInput.setText("");
 			}
 		});
