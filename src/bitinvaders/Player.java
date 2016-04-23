@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Player extends Sprite{
+	private int score = 0;
 	public boolean death = false;
 	public static int numLives=3;
 	private String input;
@@ -15,12 +16,18 @@ public class Player extends Sprite{
 	public int getNumLives(){
 		return numLives;
 	}
-	public void maim(){
-		//numLives--;
-		if (numLives == 0){
-			death=true;
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void updateScore(int increment) {
+		score = score+increment;
+		if (score < 0) {
+			death = true;
 		}
 	}
+	
 	public void addHealth(){
 		//numLives++;
 	}

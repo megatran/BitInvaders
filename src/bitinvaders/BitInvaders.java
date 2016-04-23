@@ -37,8 +37,10 @@ public class BitInvaders extends JFrame implements Commons {
 		JLabel scoreLabel = new JLabel("Score");
 		JLabel lifeLabel = new JLabel("Life");
 		JTextField scoreOutput = new JTextField(5);
+		scoreOutput.setText(Integer.toString(0));
 		JTextField lifeOutput = new JTextField(5);
 		lifeOutput.setEditable(false);
+		lifeOutput.setText(Integer.toString(board.player.getNumLives()));
 		scoreOutput.setEditable(false);
 		panelBottom.setSize(BOARD_WIDTH, 10);
 		panelBottom.add(scoreLabel);
@@ -54,6 +56,8 @@ public class BitInvaders extends JFrame implements Commons {
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Enter Pressed: "+userInput.getText());
 				board.checkInput(Integer.parseInt(userInput.getText()));
+				scoreOutput.setText(Integer.toString(board.player.getScore()));
+				lifeOutput.setText(Integer.toString(board.player.getNumLives()));
 				userInput.setText("");
 			}
 		});

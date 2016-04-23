@@ -29,7 +29,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	Queue<BitAlien> alienQueue = new LinkedList<BitAlien>();
 	ArrayList<BitAlien> aliens;
 //	BitAlien testAlien;
-	Player player;
+	protected Player player;
 	boolean ingame = true;
 	private Timer timer;
 	public static final int SPEED = 1000;
@@ -95,9 +95,13 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
 		if (found) {
 			System.out.println("You found " + keyTyped);
+			//increase player's score by the alien's decimal value
+			player.updateScore(+keyTyped);
 			repaint();
 			
 		} else {
+			//decrease player's score by that 
+			player.updateScore(-5);
 			System.out.println(keyTyped + " is INCORRECT");
 		}
 
