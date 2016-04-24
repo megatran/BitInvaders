@@ -21,7 +21,7 @@ public class BitInvaders extends JFrame implements Commons {
 		board = new Board();
 		//setLayout(new GridLayout(0,1,0,3));
         add(board);
-        setTitle("Space Invaders");
+        setTitle("Bit Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(createBottomPanel(), BorderLayout.SOUTH);
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGTH));
