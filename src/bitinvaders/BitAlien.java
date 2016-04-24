@@ -4,10 +4,9 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.awt.Color;
 import java.awt.Graphics;
-
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class BitAlien extends Sprite {
 	Color color;
@@ -19,6 +18,7 @@ public class BitAlien extends Sprite {
     private int y;
     private String myBits;
     private int myDecimalValue;
+   
     
     private static int id = 0;
     
@@ -39,6 +39,8 @@ public class BitAlien extends Sprite {
 		return myDecimalValue;
 	}
 	
+	
+
 	private void randomize(){
 		x = randomInt(0,Commons.BOARD_WIDTH - WIDTH);
 		y = OFFSET;
@@ -85,6 +87,22 @@ public class BitAlien extends Sprite {
 	public void move() {
 		x += dx;
 		y += speed;
+		if (y == Commons.BOARD_HEIGHT - 65){
+			BitInvaders.board.getPlayer().updateLife(-1);
+			BitInvaders.displayLife();
+		}
+		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isHasShownDialogue()){
+			BitInvaders.setHasShownDialogueTrue();
+			dying = true;
+			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);	
+		}
+		if (BitInvaders.isHasShownDialogue()){
+			System.exit(dx);
+		}
+//		if (dying) {
+//			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
+//		}
+		System.out.println(y);
 	}
 
 	public int getX() {
@@ -103,6 +121,7 @@ public class BitAlien extends Sprite {
 			g.setColor(Color.YELLOW);
 			g.drawString(myBits, x + OFFSET, y + HEIGHT - OFFSET);
 		}
+
 	}
 	
 	

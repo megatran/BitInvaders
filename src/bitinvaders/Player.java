@@ -21,6 +21,10 @@ public class Player extends Sprite{
 		return score;
 	}
 	
+	public void updateLife(int increment){
+		numLives = numLives + increment;
+	}
+	
 	public void updateScore(int increment) {
 		score = score+increment;
 		if (score < 0) {

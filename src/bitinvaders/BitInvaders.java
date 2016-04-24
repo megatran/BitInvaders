@@ -14,17 +14,25 @@ import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
 
 public class BitInvaders extends JFrame implements Commons {
-	Board board;
+	protected static Board board;
+	private static JTextField lifeDisplay;
+	 private static boolean hasShownDialogue = false;
 	
+	
+
+//	public void setBoard(Board board) {
+//		this.board = board;
+//	}
+
 	public BitInvaders()
     {
 		board = new Board();
 		//setLayout(new GridLayout(0,1,0,3));
         add(board);
-        setTitle("Bit Invaders");
+        setTitle("Space Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(createBottomPanel(), BorderLayout.SOUTH);
-        setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGTH));
+        setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         pack();
         //setLocationRelativeTo(null);
         setVisible(true);
@@ -38,16 +46,16 @@ public class BitInvaders extends JFrame implements Commons {
 		JLabel lifeLabel = new JLabel("Life");
 		JTextField scoreOutput = new JTextField(5);
 		scoreOutput.setText(Integer.toString(0));
-		JTextField lifeOutput = new JTextField(5);
-		lifeOutput.setEditable(false);
-		lifeOutput.setText(Integer.toString(board.player.getNumLives()));
+		lifeDisplay = new JTextField(5);
+		lifeDisplay.setEditable(false);
+		lifeDisplay.setText(Integer.toString(board.player.getNumLives()));
 		scoreOutput.setEditable(false);
 		panelBottom.setSize(BOARD_WIDTH, 10);
 		panelBottom.add(scoreLabel);
 		panelBottom.add(scoreOutput);
 		panelBottom.add(userInput);
 		panelBottom.add(lifeLabel);
-		panelBottom.add(lifeOutput);
+		panelBottom.add(lifeDisplay);
 		
 		//userInput textfield only accept numeric keypress by user DocumentFilter to check!
 		((AbstractDocument)userInput.getDocument()).setDocumentFilter(new DigitDocumentFilter());
@@ -57,7 +65,6 @@ public class BitInvaders extends JFrame implements Commons {
 				//System.out.println("Enter Pressed: "+userInput.getText());
 				board.checkInput(Integer.parseInt(userInput.getText()));
 				scoreOutput.setText(Integer.toString(board.player.getScore()));
-				lifeOutput.setText(Integer.toString(board.player.getNumLives()));
 				userInput.setText("");
 			}
 		});
@@ -65,7 +72,23 @@ public class BitInvaders extends JFrame implements Commons {
 		return panelBottom;
 	}
 	
-    public static void main(String[] args) {
+	public static void displayLife(){
+		lifeDisplay.setText(Integer.toString(board.getPlayer().getNumLives()));
+	}
+	
+	public Board getBoard() {
+		return board;
+	}
+	
+	public static void setHasShownDialogueTrue() {
+		hasShownDialogue = true;
+	}
+	
+    public static boolean isHasShownDialogue() {
+		return hasShownDialogue;
+	}
+
+	public static void main(String[] args) {
     	
         new BitInvaders();
     }

@@ -33,7 +33,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	boolean ingame = true;
 	private Timer timer;
 	public static final int SPEED = 1000;
-	private final int DELAY = 1000;
+	private final int DELAY = 100;
 	
 	// testing
 	private Dimension d;
@@ -56,7 +56,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		//alienQueue.add(testAlien);
 
 		// testing
-		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGTH);
+		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
 		setBackground(Color.black);
 	}
 
