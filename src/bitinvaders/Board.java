@@ -147,17 +147,16 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	@Override
     public void actionPerformed(ActionEvent e) {
-		
 		if(randomAdd(1,4)){
-        	BitAlien newA = new BitAlien(10);
-        	alienQueue.add(newA);
+			BitAlien newA = new BitAlien(10);
+			alienQueue.add(newA);
 		}
 		testCount++;
 		//System.out.println(testCount);
 		for(BitAlien a: alienQueue){
 			a.move();
 		}
-        repaint();  
+		repaint();  
     }
 	//only used for testing
 	public void addAlien(BitAlien a){
