@@ -152,9 +152,10 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		
     }
 	public void makeAliens(){
+
 		if(randomAdd(1,4)){
-        	BitAlien newA = new BitAlien(10);
-        	alienQueue.add(newA);
+			BitAlien newA = new BitAlien(10);
+			alienQueue.add(newA);
 		}
 		testCount++;
 		//System.out.println(testCount);
@@ -163,6 +164,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
         repaint();  
 	}
+
 	//only used for testing
 	public void addAlien(BitAlien a){
 		alienQueue.add(a);

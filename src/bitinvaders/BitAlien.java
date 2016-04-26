@@ -94,13 +94,13 @@ public class BitAlien extends Sprite {
 			BitInvaders.board.getPlayer().updateLife(-1);
 			BitInvaders.displayLife();
 		}
-		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isHasShownDialogue()){
-			BitInvaders.setHasShownDialogueTrue();
+		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isGameOver()){
+			BitInvaders.setGameOverTrue();
 			dying = true;
 			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);	
 		}
-		if (BitInvaders.isHasShownDialogue()){
-			System.exit(dx);
+		if (BitInvaders.isGameOver()){
+			
 		}
 //		if (dying) {
 //			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);

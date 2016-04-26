@@ -17,6 +17,7 @@ public class BitInvaders extends JFrame implements Commons {
 	protected static Board board;
 	private static JTextField lifeDisplay;
 	private static boolean hasShownDialogue = false;
+	private static boolean gameOver = false;
 
 	public BitInvaders()
     {
@@ -81,13 +82,18 @@ public class BitInvaders extends JFrame implements Commons {
 		hasShownDialogue = true;
 	}
 	
-    public static boolean isHasShownDialogue() {
-		return hasShownDialogue;
+    public static boolean isGameOver() {
+		return gameOver;
 	}
 
 	public static void main(String[] args) {
     	
         new BitInvaders();
     }
+
+	public static void setGameOverTrue() {
+		gameOver = true;
+		
+	}
 
 }
