@@ -79,7 +79,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		boolean found = false;
 		for (BitAlien a: alienQueue) {
 			if (keyTyped == a.getMyDecimalValue()) {
-				a.die();
 				alienQueue.remove(a);
 				found = true;
 				break;

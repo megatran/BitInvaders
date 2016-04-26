@@ -63,15 +63,17 @@ public class RunTests {
 	
 	@Test
 	public void testAlienDeath(){
-		Player p = board.getPlayer();
 		BitAlien a = new BitAlien(0);
 		a.randomize();
 		int i = a.getMyDecimalValue();
 		board.addAlien(a);
 		board.checkInput(i+1);
-		assertTrue(a.isVisible());
-		board.checkInput(i);
-		assertTrue(!a.isVisible());
+		Queue<BitAlien> qu = board.getAlienQueue();
+		assertTrue(qu.contains(a));
+		for(int k=0; k<5; k++){
+		board.checkInput(i);}
+		qu = board.getAlienQueue();
+		assertFalse(qu.contains(a));
 	}
 	
 	@Test
