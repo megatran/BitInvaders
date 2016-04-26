@@ -41,7 +41,7 @@ public class BitAlien extends Sprite {
 	
 	
 
-	private void randomize(){
+	public void randomize(){
 		x = randomInt(0,Commons.BOARD_WIDTH - WIDTH);
 		y = OFFSET;
 		myDecimalValue = randomInt(0,15);
@@ -126,6 +126,7 @@ public class BitAlien extends Sprite {
 		}
 
 	}
+
 	
 	
 

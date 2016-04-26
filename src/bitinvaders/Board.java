@@ -33,7 +33,8 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	boolean ingame = true;
 	private Timer timer;
 	public static final int SPEED = 1000;
-	private final int DELAY = 100;
+	//delay changes the speed of the aliens falling
+	private final int DELAY = 500;
 	
 	// testing
 	private Dimension d;
@@ -147,7 +148,10 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	@Override
     public void actionPerformed(ActionEvent e) {
+		makeAliens();
 		
+    }
+	public void makeAliens(){
 		if(randomAdd(1,4)){
         	BitAlien newA = new BitAlien(10);
         	alienQueue.add(newA);
@@ -158,7 +162,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 			a.move();
 		}
         repaint();  
-    }
+	}
 	//only used for testing
 	public void addAlien(BitAlien a){
 		alienQueue.add(a);

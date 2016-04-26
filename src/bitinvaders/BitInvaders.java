@@ -73,6 +73,9 @@ public class BitInvaders extends JFrame implements Commons {
 	public Board getBoard() {
 		return board;
 	}
+	public void setBoard(Board b){
+		board=b;
+	}
 	
 	public static void setHasShownDialogueTrue() {
 		hasShownDialogue = true;
