@@ -9,6 +9,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
@@ -32,6 +36,37 @@ public class BitInvaders extends JFrame implements Commons {
         //setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+        
+        JMenuBar bar = new JMenuBar();
+		setJMenuBar(bar);
+		JMenu file = new JMenu("File");
+		bar.add(file);
+		JMenuItem pause = new JMenuItem("Pause");
+		JMenuItem exit = new JMenuItem("Exit");
+		file.add(pause);
+		file.add(exit);
+		class ExitListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		}
+		exit.addActionListener(new ExitListener());
+		class PauseListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent e) {
+				if (pause.getText().equals("Pause")){
+					board.pause();
+					pause.setText("Continue");
+				}
+				else {
+					pause.setText("Pause");
+					board.unpause();
+				}
+				
+			}
+		}
+		pause.addActionListener(new PauseListener());
     }
 
 	private JPanel createBottomPanel() {
@@ -87,8 +122,10 @@ public class BitInvaders extends JFrame implements Commons {
 	}
 
 	public static void main(String[] args) {
-    	
-        new BitInvaders();
+		BitInvaders game = new BitInvaders();
+		JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
+        
+        
     }
 
 	public static void setGameOverTrue() {

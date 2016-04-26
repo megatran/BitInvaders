@@ -118,7 +118,7 @@ public class BitAlien extends Sprite {
 
 	
 	public void drawAlien(Graphics g){
-		if(!dying){
+		if(!dying && isVisible()){
 			g.setColor(Color.YELLOW);
 			g.drawRect(x, y, WIDTH, HEIGHT);
 			g.setColor(Color.YELLOW);
