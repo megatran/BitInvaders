@@ -64,7 +64,9 @@ public class BitAlien extends Sprite {
 			myBits = t + temp;
 		}
 	}
-	
+	public void setMyBits(String t){
+		myBits = t;
+	}
 	public int randomInt(int min, int max){
 		Random rand = null;
 
@@ -84,6 +86,7 @@ public class BitAlien extends Sprite {
 		case 2: color = Color.RED;
 		}
 	}
+	
 	public void move() {
 		x += dx;
 		y += speed;

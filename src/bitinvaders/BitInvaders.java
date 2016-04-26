@@ -16,13 +16,7 @@ import javax.swing.text.AbstractDocument;
 public class BitInvaders extends JFrame implements Commons {
 	protected static Board board;
 	private static JTextField lifeDisplay;
-	 private static boolean hasShownDialogue = false;
-	
-	
-
-//	public void setBoard(Board board) {
-//		this.board = board;
-//	}
+	private static boolean hasShownDialogue = false;
 
 	public BitInvaders()
     {

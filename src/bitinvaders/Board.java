@@ -106,6 +106,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
 
 	}
+
 	public Queue<BitAlien> getAlienQueue() {
 		return alienQueue;
 	}
@@ -158,5 +159,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
         repaint();  
     }
+	//only used for testing
+	public void addAlien(BitAlien a){
+		alienQueue.add(a);
+	}
 	
 }

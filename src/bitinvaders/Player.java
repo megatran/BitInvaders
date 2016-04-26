@@ -33,9 +33,17 @@ public class Player extends Sprite{
 	}
 	
 	public void addHealth(){
-		//numLives++;
+		numLives++;
 	}
 	public boolean isDead(){
 		return death;
+	}
+	public void updateInput() {
+		// TODO Auto-generated method stub
+		
+	}
+	public String getInput() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
