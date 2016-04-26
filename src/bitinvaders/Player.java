@@ -23,6 +23,7 @@ public class Player extends Sprite{
 	
 	public void updateLife(int increment){
 		numLives = numLives + increment;
+		if (numLives<0) death=true;
 	}
 	
 	public void updateScore(int increment) {

@@ -27,8 +27,6 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
 	Queue<BitAlien> alienQueue = new LinkedList<BitAlien>();
-	ArrayList<BitAlien> aliens;
-//	BitAlien testAlien;
 	protected Player player;
 	boolean ingame = true;
 	private Timer timer;
@@ -49,7 +47,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		setFocusable(true);
 		timer = new Timer(DELAY, this);
 		timer.start();
-		aliens = new ArrayList<BitAlien>();
 		alienQueue = new LinkedList<BitAlien>();
 		player = new Player(0,0);
 		
@@ -73,12 +70,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	    	return true;
 	    return false;
 	}
-	public void setAliens(ArrayList<BitAlien> replacementlist){
-		aliens = replacementlist;
-	}
-	public ArrayList<BitAlien> getAliens(){
-		return aliens;
-	}
+
 	public Player getPlayer(){
 		return player;
 	}
@@ -87,6 +79,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		boolean found = false;
 		for (BitAlien a: alienQueue) {
 			if (keyTyped == a.getMyDecimalValue()) {
+				a.die();
 				alienQueue.remove(a);
 				found = true;
 				break;
@@ -97,7 +90,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		if (found) {
 			System.out.println("You found " + keyTyped);
 			//increase player's score by the alien's decimal value
-			player.updateScore(+keyTyped);
+			player.updateScore(keyTyped);
 			repaint();
 			
 		} else {
