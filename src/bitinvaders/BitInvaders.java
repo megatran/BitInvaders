@@ -36,10 +36,10 @@ public class BitInvaders extends JFrame implements Commons {
         add(makeScore(), BorderLayout.NORTH);
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         pack();
-        //setLocationRelativeTo(null);
         setVisible(true);
         input.requestFocus();
         setResizable(false);
+        
         
         JMenuBar bar = new JMenuBar();
 		setJMenuBar(bar);
@@ -63,6 +63,7 @@ public class BitInvaders extends JFrame implements Commons {
 		input = userInput;
 		JLabel lifeLabel = new JLabel("Life");
 		JButton pause = new JButton("Pause");
+		JButton tutorial = new JButton("?");
 		lifeDisplay = new JTextField(2);
 		lifeDisplay.setEditable(false);
 		lifeDisplay.setText(Integer.toString(board.player.getNumLives()));
@@ -71,6 +72,7 @@ public class BitInvaders extends JFrame implements Commons {
 		panelBottom.add(lifeDisplay);
 		panelBottom.add(userInput);
 		panelBottom.add(pause);
+		panelBottom.add(tutorial);
 		
 		class PauseListener implements ActionListener
 		{
@@ -86,6 +88,14 @@ public class BitInvaders extends JFrame implements Commons {
 			}
 		}
 		pause.addActionListener(new PauseListener());
+		class TutorialListener implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				board.pause();
+				pause.setText("Continue");
+				new Tutorial();
+			}
+		}
+		tutorial.addActionListener(new TutorialListener());
 		//userInput textfield only accept numeric keypress by user DocumentFilter to check!
 		((AbstractDocument)userInput.getDocument()).setDocumentFilter(new DigitDocumentFilter());
 		//the user input will accept numeric input from the user when he/she presses 'Enter'

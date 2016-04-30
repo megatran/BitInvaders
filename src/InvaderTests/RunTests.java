@@ -39,6 +39,16 @@ public class RunTests {
 		assertTrue(fast.getY() == y+20);
 		assertTrue(fast.getX() == x);
 	}
+
+@Test 
+public void pauseContinue(){
+	BitAlien a = new BitAlien(10);
+	board.addAlien(a);
+	board.pause();
+	assertFalse(a.isVisible());
+	board.unpause();
+	assertTrue(a.isVisible());
+}
 @Test
 public void testAliencolor(){
 	BitAlien a = new BitAlien(5);

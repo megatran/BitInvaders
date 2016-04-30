@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class Tutorial extends JPanel {
+public class Tutorial extends JDialog {
 	
 	private JTextArea textarea;
 	private JTextField in;
@@ -34,6 +35,9 @@ public class Tutorial extends JPanel {
 	private int i = 0;
 	
 	public Tutorial(){
+		setVisible(true);
+		setSize(300,500);
+		setTitle("Tutorial");
 		setLayout(new GridLayout(2,0));
 		JLabel imgLabel = new JLabel(new ImageIcon("images/TutorialImageSmall.png"));
 		add(imgLabel);
@@ -48,7 +52,9 @@ public class Tutorial extends JPanel {
 		in.setVisible(false);
 		ioo.add(in);
 		JButton next = new JButton("OK");
+		JButton close = new JButton("Close");
 		ioo.add(next);
+		ioo.add(close);
 		io.add(ioo);
 		add(io);
 
@@ -58,6 +64,12 @@ public class Tutorial extends JPanel {
 			}
 		}
 		next.addActionListener(new ButtonListener());
+		class CloseListener implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		}
+		close.addActionListener(new CloseListener());
 	}
 	private void updateText(){
 		String[] answers = {"","","","","","5","10","3","6"};
@@ -72,8 +84,9 @@ public class Tutorial extends JPanel {
 				textarea.setText(text[i]);
 			}
 		}
-		else if (i==9)
-			this.setVisible(false);
+		else if (i==9){
+			setVisible(false);
+		}
 		else if (i==4){
 			in.setVisible(true);
 			i++;
