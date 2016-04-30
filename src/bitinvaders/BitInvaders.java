@@ -140,5 +140,5 @@ public class BitInvaders extends JFrame implements Commons {
 		gameOver = true;
 		
 	}
-
+	
 }

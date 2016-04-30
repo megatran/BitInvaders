@@ -2,27 +2,18 @@ package bitinvaders;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.*;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
