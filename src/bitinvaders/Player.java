@@ -11,7 +11,8 @@ public class Player extends Sprite{
 	private String input;
 	public Player(int row, int col){
 		super(row, col);
-		
+		score = 0;
+		numLives = 3;
 	}
 	public int getNumLives(){
 		return numLives;

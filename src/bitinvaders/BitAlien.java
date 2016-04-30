@@ -119,7 +119,9 @@ public class BitAlien extends Sprite {
 			//JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
 			if ((s1 != null) && (s1.length() > 0)) {
 			    if (s1 == "Yes"){
+			    	BitInvaders.disposeJFrame(BitInvaders.getFrames());
 			    	BitInvaders game = new BitInvaders();
+			    	//BitInvaders.board.getPlayer()BitAlien.;
 			    }
 			    if (s1 == "No"){
 			    	System.exit(dx);
