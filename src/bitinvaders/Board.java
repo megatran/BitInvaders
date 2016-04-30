@@ -30,7 +30,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	boolean ingame = true;
 	boolean boardGameOver = false;
 	private Timer timer;
-	public static final int SPEED = 1000;
+	public static final int SPEED = 20;
 	//delay changes the speed of the aliens falling
 	private final int DELAY = 100;
 
@@ -242,7 +242,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void makeAliens(){
 
 		if(alienQueue.size() > 4 && specialList.size() < 1){
-			SpecialBitAlien special = new SpecialBitAlien(10);
+			SpecialBitAlien special = new SpecialBitAlien(SPEED / 2);
 			specialList.add(special);
 		}
 		else if(randomAdd(1,4)){
@@ -254,6 +254,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 			i = i-i%5+5;
 			//cut off at speed 20
 			if (i>20){ i=20;}
+
 			BitAlien newA = new BitAlien(i);
 			alienQueue.add(newA);
 		}
