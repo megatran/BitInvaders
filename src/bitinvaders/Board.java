@@ -84,6 +84,16 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 				found = false;
 			}
 		}
+		for(SpecialBitAlien s: specialList){
+			if (keyTyped == s.getTotalDecimalValue()) {
+				specialList.remove(s);
+				alienQueue.clear();
+				found = true;
+				break;
+			} else {
+				found = false;
+			}
+		}
 		if (found) {
 			System.out.println("You found " + keyTyped);
 			//increase player's score by the alien's decimal value
