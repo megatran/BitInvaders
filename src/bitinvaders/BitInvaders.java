@@ -134,7 +134,6 @@ public class BitInvaders extends JFrame implements Commons {
 		BitInvaders game = new BitInvaders();
 		JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
         
-        
     }
 
 	public static void setGameOverTrue() {
