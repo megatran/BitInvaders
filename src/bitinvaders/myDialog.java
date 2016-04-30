@@ -23,14 +23,14 @@ public class myDialog extends JDialog{
 		add(panel);
 		pack();
 		setLocationRelativeTo(frame);
-		addYesListener(new ActionListener() {
+		/*addYesListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!myDialog.isVisible())
-					myDialog.setVisible(true);
+				if(!this.isVisible())
+					this.setVisible(true);
 				
 			}
 		}
-		);
+		);*/
 		
 	}
 	public void addYesListener(ActionListener listener){

@@ -66,9 +66,9 @@ public class BitInvaders extends JFrame implements Commons {
 		lifeDisplay.setEditable(false);
 		lifeDisplay.setText(Integer.toString(board.player.getNumLives()));
 		panelBottom.setSize(BOARD_WIDTH, 10);
-		panelBottom.add(userInput);
 		panelBottom.add(lifeLabel);
 		panelBottom.add(lifeDisplay);
+		panelBottom.add(userInput);
 		panelBottom.add(pause);
 		
 		class PauseListener implements ActionListener

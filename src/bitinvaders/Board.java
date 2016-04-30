@@ -59,13 +59,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public boolean randomAdd(int min, int max){
-		Random rand = null;
-
 	    // nextInt is normally exclusive of the top value,
 	    // so add 1 to make it inclusive
 		int r = ThreadLocalRandom.current().nextInt(min, max + 1);
-	    //int randomNum = rand.nextInt((max - min) + 1) + min;
-	    
 	    if(r == max)
 	    	return true;
 	    return false;
@@ -144,13 +140,19 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		
     }
 	public void makeAliens(){
-
 		if(randomAdd(1,4)){
-			BitAlien newA = new BitAlien(5);
+			Random ran = new Random();
+			int i = BitAlien.getID();
+			//generates a number between half of the aliens generated and the number of aliens generated
+			i=ran.nextInt(i+1)+i/4;
+			//rounds up to the next 5
+			i = i-i%5+5;
+			//cut off at speed 20
+			if (i>20){ i=20;}
+			BitAlien newA = new BitAlien(i);
 			alienQueue.add(newA);
 		}
 		testCount++;
-		//System.out.println(testCount);
 		for(BitAlien a: alienQueue){
 			a.move();
 		}
