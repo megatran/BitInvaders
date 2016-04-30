@@ -12,7 +12,7 @@ public class BitAlien extends Sprite {
 	Color color;
 	
 	private int dx = 0;
-    private int dy = 10;
+    private int dy = 40;
     private int speed;
     private int x;
     private int y;
@@ -117,6 +117,18 @@ public class BitAlien extends Sprite {
 	}
 
 	
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public String getMyBits() {
+		return myBits;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	public void drawAlien(Graphics g){
 		if(!dying && isVisible()){
 			g.setColor(Color.YELLOW);
