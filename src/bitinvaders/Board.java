@@ -30,15 +30,13 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	protected Player player;
 	boolean ingame = true;
 	private Timer timer;
-	public static final int SPEED = 20;
+	public static final int SPEED = 1000;
 	//delay changes the speed of the aliens falling
-	private final int DELAY = 1000;
+	private final int DELAY = 100;
 	
 	// testing
 	private Dimension d;
 	int testCount = 0;
-	SpecialBitAlien special;
-	ArrayList<SpecialBitAlien> specialList = new ArrayList<SpecialBitAlien>();
 	
 	public  Board(){
 		initBoard();
@@ -51,11 +49,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		timer.start();
 		alienQueue = new LinkedList<BitAlien>();
 		player = new Player(0,0);
-//		testing = new SpecialBitAlien(20);
-//		testList.add(testing);
-		BitAlien first = new BitAlien(SPEED);
-		alienQueue.add(first);
 		
+		//testAlien = new BitAlien(10);
+		//alienQueue.add(testAlien);
 
 		// testing
 		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
@@ -63,13 +59,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public boolean randomAdd(int min, int max){
-		Random rand = null;
-
 	    // nextInt is normally exclusive of the top value,
 	    // so add 1 to make it inclusive
 		int r = ThreadLocalRandom.current().nextInt(min, max + 1);
-	    //int randomNum = rand.nextInt((max - min) + 1) + min;
-	    
 	    if(r == max)
 	    	return true;
 	    return false;
@@ -85,16 +77,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 			if (keyTyped == a.getMyDecimalValue()) {
 				alienQueue.remove(a);
 				found = true;
-				break;
-			} else {
-				found = false;
-			}
-		}
-		for(SpecialBitAlien s: specialList){
-			if (keyTyped == s.getTotalDecimalValue()) {
-				specialList.remove(s);
-				found = true;
-				alienQueue.clear();
 				break;
 			} else {
 				found = false;
@@ -147,9 +129,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	private void doDrawing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		//testAlien.drawAlien(g);
-		for(SpecialBitAlien s: specialList){
-			s.drawSpecialAlien(g);
-		}
 		for(BitAlien a: alienQueue){
 			a.drawAlien(g);
 		}
@@ -161,22 +140,21 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		
     }
 	public void makeAliens(){
-		if(alienQueue.size() > 4 && specialList.size() < 1){
-			special = new SpecialBitAlien(SPEED/2);
-			specialList.add(special);
-		}
-
-		else if(randomAdd(1,2)){
-			BitAlien newA = new BitAlien(SPEED);
+		if(randomAdd(1,4)){
+			Random ran = new Random();
+			int i = BitAlien.getID();
+			//generates a number between half of the aliens generated and the number of aliens generated
+			i=ran.nextInt(i+1)+i/4;
+			//rounds up to the next 5
+			i = i-i%5+5;
+			//cut off at speed 20
+			if (i>20){ i=20;}
+			BitAlien newA = new BitAlien(i);
 			alienQueue.add(newA);
 		}
 		testCount++;
-		//System.out.println(testCount);
 		for(BitAlien a: alienQueue){
 			a.move();
-		}
-		for(SpecialBitAlien s: specialList){
-			s.move();
 		}
         repaint();  
 	}
@@ -190,9 +168,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		for(BitAlien a: alienQueue){
 			a.setVisible(false);
 		}
-		for(SpecialBitAlien s: specialList){
-			s.setVisible(false);
-		}
 			repaint();
 		
 	}
@@ -200,9 +175,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void unpause() {
 		for(BitAlien a: alienQueue){
 			a.setVisible(true);
-		}
-		for(SpecialBitAlien s: specialList){
-			s.setVisible(true);
 		}
 			repaint();
 		

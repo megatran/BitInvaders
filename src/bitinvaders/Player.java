@@ -11,7 +11,8 @@ public class Player extends Sprite{
 	private String input;
 	public Player(int row, int col){
 		super(row, col);
-		
+		score = 0;
+		numLives = 3;
 	}
 	public int getNumLives(){
 		return numLives;
@@ -39,12 +40,5 @@ public class Player extends Sprite{
 	public boolean isDead(){
 		return death;
 	}
-	public void updateInput() {
-		// TODO Auto-generated method stub
-		
-	}
-	public String getInput() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

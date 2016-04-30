@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class BitAlien extends Sprite {
-	Color color;
+	private Color color;
 	
 	private int dx = 0;
     private int dy = 40;
@@ -30,15 +30,17 @@ public class BitAlien extends Sprite {
 	public BitAlien(int speed){
 		this.speed = speed;
 		this.dy = speed;
-		setSpeed();
-		initAlien();
-		this.id = id++;
+		setColor();
+		randomize();
+		id++;
 	}
 	
 	public int getMyDecimalValue() {
 		return myDecimalValue;
 	}
-	
+	public static int getID(){
+		return id;
+	}
 	
 
 	public void randomize(){
@@ -77,13 +79,16 @@ public class BitAlien extends Sprite {
 	    return randomNum;
 	}
 	
-	private void initAlien(){
-        randomize(); 
-	}
-	public void setSpeed(){
+	public void setColor(){
 		switch (speed){
-		case 1: color=Color.BLUE;
-		case 2: color = Color.RED;
+		case 5: color = Color.cyan;
+			break;
+		case 10: color = Color.green;
+			break;
+		case 15: color = Color.yellow;
+			break;
+		case 20: color = Color.magenta;
+			break;
 		}
 	}
 	
@@ -97,7 +102,34 @@ public class BitAlien extends Sprite {
 		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isGameOver()){
 			BitInvaders.setGameOverTrue();
 			dying = true;
-			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);	
+//			String s = (String)JOptionPane.showConfirmDialog(
+//				    null,
+//				    "Would you like green eggs and ham?",
+//				    "An Inane Question",
+//				    JOptionPane.YES_NO_OPTION);
+			Object[] possibilities = {"Yes", "No"};
+			String s1 = (String)JOptionPane.showInputDialog(
+			                    null,
+			                    "Game over! Would you like to restart?",
+			                    "BitInvaders",
+			                    JOptionPane.YES_NO_OPTION,
+			                    null,
+			                    possibilities,
+			                    "ham");
+			//JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
+			if ((s1 != null) && (s1.length() > 0)) {
+			    if (s1 == "Yes"){
+			    	BitInvaders.disposeJFrame(BitInvaders.getFrames());
+			    	BitInvaders game = new BitInvaders();
+			    	//BitInvaders.board.getPlayer()BitAlien.;
+			    }
+			    if (s1 == "No"){
+			    	System.exit(dx);
+			    }
+			}
+			else{
+				System.exit(dx);
+			}
 		}
 		if (BitInvaders.isGameOver()){
 			
@@ -105,7 +137,6 @@ public class BitAlien extends Sprite {
 //		if (dying) {
 //			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
 //		}
-		System.out.println(y);
 	}
 
 	public int getX() {
@@ -131,9 +162,9 @@ public class BitAlien extends Sprite {
 
 	public void drawAlien(Graphics g){
 		if(!dying && isVisible()){
-			g.setColor(Color.YELLOW);
+			g.setColor(color);
 			g.drawRect(x, y, WIDTH, HEIGHT);
-			g.setColor(Color.YELLOW);
+			g.setColor(color);
 			g.drawString(myBits, x + OFFSET, y + HEIGHT - OFFSET);
 		}
 
