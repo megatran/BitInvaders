@@ -26,11 +26,11 @@ public class Tutorial extends JPanel {
 	text[2] = "Thus, the decimal number 2 is expressed as 10. There is 1 in the twos place, and 0 in the ones place, making the total 2.";
 	text[3] = "Therefore, 11 in binary is 3 in decimal, 100 in binary is 4 in decimal, and so on. ";
 	text[4] = "As with decimal numbers, 0s at the beginning of a number do not change the value of the number. 011 is equal to 11.";
-	text[5] = "What is 0010 in decimal?";
-	text[6] = "What is 0101 in decimal?";
-	text[7] = "What is 1010 in decimal?";
-	text[8] = "What is 1111 in decimal?";
-	text[9] = "You are now ready to play!";}
+	text[5] = "What is 0101 in decimal?";
+	text[6] = "What is 1010 in decimal?";
+	text[7] = "What is 0011 in decimal?";
+	text[8] = "What is 0011 + 0011 in decimal?";
+	text[9] = "You are now ready to play! Cyan aliens fall slowly, so you will have more time to solve them. Green, yellow, and magenta aliens are faster. Red aliens are special! Add the two bits in a red alien to clear the board!";}
 	private int i = 0;
 	
 	public Tutorial(){
@@ -60,7 +60,7 @@ public class Tutorial extends JPanel {
 		next.addActionListener(new ButtonListener());
 	}
 	private void updateText(){
-		String[] answers = {"","","","","","2","5","10","15"};
+		String[] answers = {"","","","","","5","10","3","6"};
 		if (i>4 && i<9){
 			if(!in.getText().equals(answers[i])){
 				textarea.setText("That is incorrect. Remember that the first digit is the eights place, the second represents fours, the third twos, and the last ones. " + text[i]);

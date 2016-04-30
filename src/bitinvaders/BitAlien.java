@@ -41,7 +41,7 @@ public class BitAlien extends Sprite {
 	public static int getID(){
 		return id;
 	}
-	
+	public Color getColor(){return color;};
 
 	public void randomize(){
 		x = randomInt(0,Commons.BOARD_WIDTH - WIDTH);
