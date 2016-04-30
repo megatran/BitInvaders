@@ -1,6 +1,8 @@
 package InvaderTests;
 
 import static org.junit.Assert.*;
+
+import java.awt.Color;
 import java.util.Queue;
 
 import javax.swing.ImageIcon;
@@ -12,6 +14,7 @@ import bitinvaders.BitAlien;
 import bitinvaders.BitInvaders;
 import bitinvaders.Board;
 import bitinvaders.Player;
+import bitinvaders.SpecialBitAlien;
 
 public class RunTests {
 	static Board board;
@@ -36,6 +39,30 @@ public class RunTests {
 		assertTrue(fast.getY() == y+20);
 		assertTrue(fast.getX() == x);
 	}
+
+@Test 
+public void pauseContinue(){
+	BitAlien a = new BitAlien(10);
+	board.addAlien(a);
+	board.pause();
+	assertFalse(a.isVisible());
+	board.unpause();
+	assertTrue(a.isVisible());
+}
+@Test
+public void testAliencolor(){
+	BitAlien a = new BitAlien(5);
+	assertTrue(a.getColor().equals(Color.cyan));
+	BitAlien b = new BitAlien(10);
+	assertTrue(b.getColor().equals(Color.green));
+	BitAlien c = new BitAlien(15);
+	assertTrue(c.getColor().equals(Color.yellow));
+	BitAlien d = new BitAlien(20);
+	assertTrue(d.getColor().equals(Color.magenta));
+	SpecialBitAlien e = new SpecialBitAlien(5);
+	assertTrue(e.getColor().equals(Color.RED));
+	
+}
 @Test	
 	public void testInit(){
 		//test that the Aliens alien array is not empty

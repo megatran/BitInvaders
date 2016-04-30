@@ -18,6 +18,7 @@ public class SpecialBitAlien extends Sprite{
     private String botBits;
     private int botDecimalValue;
     private int totalDecimalValue;
+    private Color color = Color.RED;
     
     //one alien measurements
     private static final int WIDTH = 35;
@@ -37,7 +38,7 @@ public class SpecialBitAlien extends Sprite{
 		initTopBot();
 	}
 	
-	
+	public Color getColor(){return color;}
 	private void initTopBot(){
 		bot = new BitAlien(speed);
 		bot.setX(this.x);
