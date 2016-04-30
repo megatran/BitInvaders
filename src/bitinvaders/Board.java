@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -18,6 +19,7 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel implements ActionListener 	/*Runnable, Commons*/ {
 	Queue<BitAlien> alienQueue = new LinkedList<BitAlien>();
+	ArrayList<SpecialBitAlien> specialList = new ArrayList<SpecialBitAlien>();
 	protected Player player;
 	boolean ingame = true;
 	private Timer timer;
@@ -38,7 +40,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		setFocusable(true);
 		timer = new Timer(DELAY, this);
 		timer.start();
-		alienQueue = new LinkedList<BitAlien>();
+		alienQueue = new LinkedList<BitAlien>();		
 		player = new Player(0,0);
 		
 		//testAlien = new BitAlien(10);
@@ -64,9 +66,20 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	public void checkInput(int keyTyped) {
 		boolean found = false;
+			
 		for (BitAlien a: alienQueue) {
 			if (keyTyped == a.getMyDecimalValue()) {
 				alienQueue.remove(a);
+				found = true;
+				break;
+			} else {
+				found = false;
+			}
+		}
+		for(SpecialBitAlien s: specialList){
+			if (keyTyped == s.getTotalDecimalValue()) {
+				specialList.remove(s);
+				alienQueue.clear();
 				found = true;
 				break;
 			} else {
@@ -123,6 +136,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		for(BitAlien a: alienQueue){
 			a.drawAlien(g);
 		}
+		for(SpecialBitAlien s: specialList){
+			s.drawSpecialAlien(g);
+		}
 	}
 
 	@Override
@@ -131,7 +147,11 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		
     }
 	public void makeAliens(){
-		if(randomAdd(1,4)){
+		if(alienQueue.size() > 4 && specialList.size() < 1){
+			SpecialBitAlien special = new SpecialBitAlien(10);
+			specialList.add(special);
+		}
+		else if(randomAdd(1,4)){
 			Random ran = new Random();
 			int i = BitAlien.getID();
 			//generates a number between half of the aliens generated and the number of aliens generated
@@ -147,6 +167,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		for(BitAlien a: alienQueue){
 			a.move();
 		}
+		for(SpecialBitAlien s: specialList){
+			s.move();
+		}
         repaint();  
 	}
 
@@ -159,6 +182,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		for(BitAlien a: alienQueue){
 			a.setVisible(false);
 		}
+		for(SpecialBitAlien s: specialList){
+			s.setVisible(false);
+		}
 			repaint();
 		
 	}
@@ -166,6 +192,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void unpause() {
 		for(BitAlien a: alienQueue){
 			a.setVisible(true);
+		}
+		for(SpecialBitAlien s: specialList){
+			s.setVisible(true);
 		}
 			repaint();
 		

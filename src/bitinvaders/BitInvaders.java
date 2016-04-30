@@ -2,6 +2,7 @@ package bitinvaders;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -133,12 +134,20 @@ public class BitInvaders extends JFrame implements Commons {
 		BitInvaders game = new BitInvaders();
 		JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
         
-        
     }
 
 	public static void setGameOverTrue() {
 		gameOver = true;
 		
 	}
-	
+
+
+	public static void disposeJFrame(Frame[] frames) {
+		for (Frame frames1: frames){
+		    frames1.setVisible(false);
+		    frames1.dispose();
+			}
+		
+	}
+
 }

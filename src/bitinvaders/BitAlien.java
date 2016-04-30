@@ -12,7 +12,7 @@ public class BitAlien extends Sprite {
 	private Color color;
 	
 	private int dx = 0;
-    private int dy = 10;
+    private int dy = 40;
     private int speed;
     private int x;
     private int y;
@@ -119,7 +119,9 @@ public class BitAlien extends Sprite {
 			//JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
 			if ((s1 != null) && (s1.length() > 0)) {
 			    if (s1 == "Yes"){
+			    	BitInvaders.disposeJFrame(BitInvaders.getFrames());
 			    	BitInvaders game = new BitInvaders();
+			    	//BitInvaders.board.getPlayer()BitAlien.;
 			    }
 			    if (s1 == "No"){
 			    	System.exit(dx);
@@ -146,6 +148,18 @@ public class BitAlien extends Sprite {
 	}
 
 	
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public String getMyBits() {
+		return myBits;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	public void drawAlien(Graphics g){
 		if(!dying && isVisible()){
 			g.setColor(color);
