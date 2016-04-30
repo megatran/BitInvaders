@@ -32,7 +32,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	private Timer timer;
 	public static final int SPEED = 1000;
 	//delay changes the speed of the aliens falling
-	private final int DELAY = 1000;
+	private final int DELAY = 100;
 	
 	// testing
 	private Dimension d;
