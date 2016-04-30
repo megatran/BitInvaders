@@ -26,6 +26,7 @@ public class BitInvaders extends JFrame implements Commons {
 	private static boolean gameOver = false;
 	private JTextField input;
 	private JTextField scoreOutput;
+	private static boolean resetBoard = false;
 
 	public BitInvaders(){
 		board = new Board();
@@ -111,13 +112,19 @@ public class BitInvaders extends JFrame implements Commons {
 		scorePanel.add(scoreOutput);
 		return scorePanel;
 	}
-	public static void displayLife(){
-		lifeDisplay.setText(Integer.toString(board.getPlayer().getNumLives()));
+	public static void displayLife(int life){
+		lifeDisplay.setText(Integer.toString(life));
 	}
+	
+	
 	
 	public Board getBoard() {
 		return board;
 	}
+	
+	
+
+	
 	public void setBoard(Board b){
 		board=b;
 	}
@@ -146,6 +153,12 @@ public class BitInvaders extends JFrame implements Commons {
 		    frames1.setVisible(false);
 		    frames1.dispose();
 			}
+	}
+	
+	
+
+	public static void setGameOver(boolean b) {
+		gameOver = b;
 		
 	}
 
