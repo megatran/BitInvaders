@@ -65,6 +65,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void checkInput(int keyTyped) {
+		if (timer.isRunning()){
 		boolean found = false;
 			
 		for (BitAlien a: alienQueue) {
@@ -97,7 +98,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 			player.updateScore(-5);
 			System.out.println(keyTyped + " is INCORRECT");
 		}
-
+		}
 	}
 
 	public Queue<BitAlien> getAlienQueue() {
