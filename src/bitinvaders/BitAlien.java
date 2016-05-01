@@ -18,6 +18,7 @@ public class BitAlien extends Sprite {
     private int y;
     private String myBits;
     private int myDecimalValue;
+    
    
     
     private static int id = 0;
@@ -98,11 +99,10 @@ public class BitAlien extends Sprite {
 	public void move() {
 		x += dx;
 		y += speed;
-		if (y >= Commons.BOARD_HEIGHT - 200 && this != null){
+		if (y >= Commons.BOARD_HEIGHT - 200){
 //			BitInvaders.board.getPlayer().updateLife(-1);
 //			BitInvaders.displayLife();
-			dying = true;
-			
+			dying = true;		
 		}
 //		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isGameOver()){
 //			BitInvaders.setGameOverTrue();

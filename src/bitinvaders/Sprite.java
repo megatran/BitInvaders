@@ -16,8 +16,15 @@ public class Sprite {
 		return col;
 	}
 	private boolean visible;
+	protected boolean hit;
     private Image image;
-    protected int x;
+    public boolean isHit() {
+		return hit;
+	}
+	public void setHit(boolean hit) {
+		this.hit = hit;
+	}
+	protected int x;
     protected int y;
     protected boolean dying;
     protected int dx;

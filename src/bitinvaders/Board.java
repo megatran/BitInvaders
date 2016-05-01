@@ -186,8 +186,9 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	public void clearAliens(){
 		for (BitAlien a: alienQueue) {
-			if (a.dying){
+			if (a.dying && !a.hit){
 				updatePlayerLife();
+				a.setHit(true);
 				a = null;
 				alienQueue.remove(a);
 
