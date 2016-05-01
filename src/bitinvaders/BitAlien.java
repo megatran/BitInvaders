@@ -98,7 +98,7 @@ public class BitAlien extends Sprite {
 	public void move() {
 		x += dx;
 		y += speed;
-		if (y >= Commons.BOARD_HEIGHT - 65 && this != null){
+		if (y >= Commons.BOARD_HEIGHT - 200 && this != null){
 //			BitInvaders.board.getPlayer().updateLife(-1);
 //			BitInvaders.displayLife();
 			dying = true;

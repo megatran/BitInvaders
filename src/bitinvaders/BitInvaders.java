@@ -1,12 +1,13 @@
 package bitinvaders;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.GridLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,9 +19,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+
 
 public class BitInvaders extends JFrame implements Commons {
 	protected static Board board;
+	private JPanel gameIntro;
+	private JPanel bottomPanel;
+	private JPanel scorePanel;
 	private static JTextField lifeDisplay;
 	private static boolean hasShownDialogue = false;
 	private static boolean gameOver = false;
@@ -29,12 +37,57 @@ public class BitInvaders extends JFrame implements Commons {
 	private static boolean resetBoard = false;
 
 	public BitInvaders(){
+		//start sound
+		GameMusic backgroundMusic = new GameMusic();
+		backgroundMusic.play();
 		board = new Board();
-        add(board);
+   //     setContentPane(new JLabel(new ImageIcon(BitInvaders.class.getResource("/spacepix/boardBackground1.png"))));
+		//only show when player click Play to switch from intro panel to board panel
+		board.setVisible(false);
+		board.pause();
         setTitle("Bit Invaders");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        add(createBottomPanel(), BorderLayout.SOUTH);
-        add(makeScore(), BorderLayout.NORTH);
+        bottomPanel = createBottomPanel();
+        scorePanel = makeScore();
+        scorePanel.setOpaque(false);
+
+        getContentPane().add(bottomPanel, BorderLayout.SOUTH);
+        getContentPane().add(scorePanel, BorderLayout.NORTH);
+        
+        gameIntro = new JPanel();
+        getContentPane().add(gameIntro, BorderLayout.CENTER);
+        gameIntro.setLayout(null);
+        gameIntro.setVisible(true);
+        bottomPanel.setVisible(false);
+        scorePanel.setVisible(false);
+        
+        BufferedImage playBttnIcon = null;
+		try {
+			playBttnIcon = ImageIO.read(BitInvaders.class.getResource("/spacepix/buttonPlaySmall.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Can't find button image");
+		}
+        JButton btnPlay = new JButton(new ImageIcon(playBttnIcon));
+        btnPlay.setBorder(BorderFactory.createEmptyBorder());
+        btnPlay.setContentAreaFilled(false);
+        btnPlay.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		gameIntro.setVisible(false);
+                bottomPanel.setVisible(true);
+                scorePanel.setVisible(true);
+                getContentPane().add(board);
+        		board.setVisible(true);
+        		board.unpause();
+        	}
+        });
+        btnPlay.setBounds(119, 333, 109, 41);
+        gameIntro.add(btnPlay);
+        JLabel lblNewLabel = new JLabel("New label");
+        lblNewLabel.setIcon(new ImageIcon(BitInvaders.class.getResource("/spacepix/bitInvaders.jpg")));
+        lblNewLabel.setBounds(-3, -32, 346, 550);
+        gameIntro.add(lblNewLabel);
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         pack();
         setVisible(true);
@@ -103,7 +156,9 @@ public class BitInvaders extends JFrame implements Commons {
 		userInput.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				//System.out.println("Enter Pressed: "+userInput.getText());
-				board.checkInput(Integer.parseInt(userInput.getText()));
+				if (!userInput.getText().isEmpty()){
+					board.checkInput(Integer.parseInt(userInput.getText()));
+				}
 				scoreOutput.setText(Integer.toString(board.player.getScore()));
 				userInput.setText("");
 			}
@@ -112,16 +167,19 @@ public class BitInvaders extends JFrame implements Commons {
 		return panelBottom;
 	}
 	private JPanel makeScore(){
-		JPanel scorePanel = new JPanel();
+		JPanel scorePan = new JPanel();
+		scorePan.setBackground(new Color(0,0,0,65));
 		JLabel scoreLabel = new JLabel("Score");
-		scorePanel.add(scoreLabel);
+		scorePan.add(scoreLabel);
 		JTextField scoreOutput = new JTextField(5);
 		this.scoreOutput=scoreOutput;
 		scoreOutput.setText(Integer.toString(0));
 		scoreOutput.setEditable(false);
-		scorePanel.add(scoreOutput);
-		return scorePanel;
+		scorePan.add(scoreOutput);
+		return scorePan;
 	}
+	
+
 	public static void displayLife(int life){
 		lifeDisplay.setText(Integer.toString(life));
 	}
@@ -159,18 +217,8 @@ public class BitInvaders extends JFrame implements Commons {
 	}
 
 
-	public static void disposeJFrame(Frame[] frames) {
-		for (Frame frames1: frames){
-		    frames1.setVisible(false);
-		    frames1.dispose();
-			}
-	}
-	
-	
-
 	public static void setGameOver(boolean b) {
 		gameOver = b;
 		
 	}
-
 }

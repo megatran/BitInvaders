@@ -1,21 +1,15 @@
 package bitinvaders;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -29,10 +23,11 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	protected Player player;
 	boolean ingame = true;
 	boolean boardGameOver = false;
+	private Image img = new ImageIcon(BitInvaders.class.getResource("/spacepix/boardBackground1.png")).getImage();
 	private Timer timer;
 	public static final int SPEED = 20;
 	//delay changes the speed of the aliens falling
-	private final int DELAY = 100;
+	private final int DELAY = 500;
 
 	// testing
 	private Dimension d;
@@ -57,7 +52,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 		// testing
 		d = new Dimension(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
-		setBackground(Color.black);
+		//setBackground();
 	}
 
 	public boolean randomAdd(int min, int max){
@@ -75,43 +70,43 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	public void checkInput(int keyTyped) {
 		if (timer.isRunning()){
-		boolean found = false;
+			boolean found = false;
 
-		for (BitAlien a: alienQueue) {
-			if (keyTyped == a.getMyDecimalValue()) {
-				alienQueue.remove(a);
-				found = true;
-				break;
-			} else {
-				found = false;
+			for (BitAlien a: alienQueue) {
+				if (keyTyped == a.getMyDecimalValue()) {
+					alienQueue.remove(a);
+					found = true;
+					break;
+				} else {
+					found = false;
+				}
 			}
-		}
-		for(SpecialBitAlien s: specialList){
-			if (s.dying){
-				alienQueue.remove(s);
-				s = null;
+			for(SpecialBitAlien s: specialList){
+				if (s.dying){
+					alienQueue.remove(s);
+					s = null;
+				}
+				if (keyTyped == s.getTotalDecimalValue()) {
+					specialList.remove(s);
+					alienQueue.clear();
+					found = true;
+					break;
+				} else {
+					found = false;
+				}
 			}
-			if (keyTyped == s.getTotalDecimalValue()) {
-				specialList.remove(s);
-				alienQueue.clear();
-				found = true;
-				break;
-			} else {
-				found = false;
+			if (found) {
+				System.out.println("You found " + keyTyped);
+				//increase player's score by the alien's decimal value
+				player.updateScore(keyTyped);
+				repaint();
 			}
-		}
-		if (found) {
-			System.out.println("You found " + keyTyped);
-			//increase player's score by the alien's decimal value
-			player.updateScore(keyTyped);
-			repaint();
-		}
 		} else {
 			//decrease player's score by that 
 			player.updateScore(-5);
 			System.out.println(keyTyped + " is INCORRECT");
 		}
-		
+
 
 	}
 
@@ -122,32 +117,14 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void paint(Graphics g)
 	{
 		super.paint(g);
-
-		g.setColor(Color.black);
-		g.fillRect(0, 0, d.width, d.height);
-		g.setColor(Color.green);   
-
-		if (ingame) {
-			//g.drawLine(0, Commons.GROUND, Commons.BOARD_WIDTH, Commons.GROUND);
-			//g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
-
-			/*
-        drawAliens(g);
-        drawPlayer(g);
-        drawShot(g);
-        drawBombing(g);
-			 */
-		}
-
+		g.drawImage(img, 0, 0, null);
 		doDrawing(g);
-		// g.drawImage(testAlien.getImage(), testAlien.getX(), testAlien.getY(), this);
 		Toolkit.getDefaultToolkit().sync();
 		g.dispose();
 	}
 
 	private void doDrawing(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
-		//testAlien.drawAlien(g);
 		for(BitAlien a: alienQueue){
 			a.drawAlien(g);
 		}
@@ -160,7 +137,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void actionPerformed(ActionEvent e) {
 		clearAliens();
 		makeAliens();
-//		BitInvaders.makeNewGame();
+		//		BitInvaders.makeNewGame();
 
 	}
 	public void updatePlayerLife(){
@@ -183,35 +160,24 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void makeNewGame(){
 		initBoard();
 
-//		String s = (String)JOptionPane.showConfirmDialog(
-//			    null,
-//			    "Would you like green eggs and ham?",
-//			    "An Inane Question",
-//			    JOptionPane.YES_NO_OPTION);
 		Object[] possibilities = {"Yes", "No"};
 		pause();
 		String s1 = (String)JOptionPane.showInputDialog(
-		                    null,
-		                    "Game over! Would you like to restart?",
-		                    "BitInvaders",
-		                    JOptionPane.YES_NO_OPTION,
-		                    null,
-		                    possibilities,
-		                    "ham");
-		//JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
+				null,
+				"Game over! Would you like to restart?",
+				"BitInvaders",
+				JOptionPane.YES_NO_OPTION,
+				null,
+				possibilities,
+				"alien");
+
 		if ((s1 != null) && (s1.length() > 0)) {
-		    if (s1 == "Yes"){
-		    	//BitInvaders.disposeJFrame(BitInvaders.getFrames());
-//		    	board.alienQueue.clear();
-//		    	board.specialList.clear();
-		    	//BitInvaders game = new BitInvaders();
-		    	//BitInvaders.board.setI
-		    	//BitInvaders.setGameOver(false);
-		    	unpause();
-		    }
-		    if (s1 == "No"){
-		    	System.exit(1);
-		    }
+			if (s1 == "Yes"){
+				unpause();
+			}
+			if (s1 == "No"){
+				System.exit(1);
+			}
 		}
 		else{
 			System.exit(1);
@@ -224,15 +190,12 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 				updatePlayerLife();
 				a = null;
 				alienQueue.remove(a);
-//				a = new BitAlien();
-//				alienQueue.remove(a);
 
 			}
 		}
 		for(SpecialBitAlien s: specialList){
 			if (s.dying){
 				updatePlayerLife();
-				//s = new SpecialBitAlien();
 				s = null;
 				alienQueue.remove(s);
 
@@ -283,7 +246,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		repaint();
 
 	}
-	
+
 	public boolean isBoardGameOver() {
 		return boardGameOver;
 	}
