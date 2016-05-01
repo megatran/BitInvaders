@@ -31,6 +31,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	// testing
 	private Dimension d;
+	private int id;
 	int testCount = 0;
 
 	public  Board(){
@@ -40,6 +41,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void initBoard(){
+		id = 0;
 		boardGameOver = false;
 		// adding timer
 		setFocusable(true);
@@ -74,6 +76,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 			for (BitAlien a: alienQueue) {
 				if (keyTyped == a.getMyDecimalValue()) {
+					id++;
 					alienQueue.remove(a);
 					found = true;
 					break;
@@ -211,9 +214,10 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
 		else if(randomAdd(1,4)){
 			Random ran = new Random();
-			int i = BitAlien.getID();
+			int i = id;
+			System.out.print("id is" + id);
 			//generates a number between half of the aliens generated and the number of aliens generated
-			i=ran.nextInt(i+1)+i/4;
+			//i=ran.nextInt(i+1)+i/4;
 			//rounds up to the next 5
 			i = i-i%5+5;
 			//cut off at speed 20

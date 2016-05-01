@@ -21,7 +21,7 @@ public class BitAlien extends Sprite {
     
    
     
-    private static int id = 0;
+ 
     
     private static final int WIDTH = 35;
     private static final int HEIGHT = 20;
@@ -36,14 +36,10 @@ public class BitAlien extends Sprite {
 		this.dy = speed;
 		setColor();
 		randomize();
-		id++;
 	}
 	
 	public int getMyDecimalValue() {
 		return myDecimalValue;
-	}
-	public static int getID(){
-		return id;
 	}
 	public Color getColor(){return color;};
 
@@ -174,12 +170,6 @@ public class BitAlien extends Sprite {
 		}
 
 	}
-
-	public static void setId(int id) {
-		BitAlien.id = id;
-	}
-	
-
 
 //	@Override
 //	public int compareTo(Alien arg0) {
