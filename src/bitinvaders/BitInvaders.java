@@ -6,6 +6,7 @@ import java.awt.Dimension;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -204,10 +205,20 @@ public class BitInvaders extends JFrame implements Commons {
     public static boolean isGameOver() {
 		return gameOver;
 	}
+    
+    public void learnToPlayPopup() {
+    	   int confirm = JOptionPane.showConfirmDialog (this, "Do you want to see the tutorials first?", "Learn to Play?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    	   
+    	   if (confirm == JOptionPane.YES_OPTION) {
+    	      Tutorial firstTut = new Tutorial();
+    	      firstTut.setVisible(true);
+    	   }
+    }
 
 	public static void main(String[] args) {
 		BitInvaders game = new BitInvaders();
-		JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
+		 game.learnToPlayPopup();
+		//JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
         
     }
 
