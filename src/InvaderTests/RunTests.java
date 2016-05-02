@@ -3,6 +3,7 @@ package InvaderTests;
 import static org.junit.Assert.*;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Queue;
 
@@ -73,21 +74,21 @@ public void testAliencolor(){
 //		assertTrue(boardaliens.size() !=0);
 //	}
 	
-//	@Test
-//	public void testImage() {
-//		// board was "this", might have to change.
-//		ImageIcon ii = new ImageIcon(board.getClass().getResource("../spacepix/alien.png"));
-//		BitAlien alien = new BitAlien(0);
-//		alien.setImage(ii.getImage());
-//		if(alien.getImage() != null)
-//			assertTrue("This is true", true);
-//		Player p = new Player(0, 0);
-//		if(p.getImage() != null)
-//			assertTrue("This is true", true);
-//		//Shot shot = new Shot(0, 0);
-//		//if(shot.getImage() != null)
-//		//	assertTrue("This is true", true);
-//	}
+	@Test
+	public void testImage() {
+		// board was "this", might have to change.
+		Image ii = new ImageIcon(board.getClass().getResource("/spacepix/boardBackground1.png")).getImage();
+		BitAlien alien = new BitAlien(0);
+		alien.setImage(ii);
+		if(alien.getImage() != null)
+			assertTrue("This is true", true);
+		Player p = new Player(0, 0);
+		if(p.getImage() != null)
+			assertTrue("This is true", true);
+		//Shot shot = new Shot(0, 0);
+		//if(shot.getImage() != null)
+		//	assertTrue("This is true", true);
+	}
 	
 	@Test
 	public void testAlienDeath(){
@@ -112,10 +113,8 @@ public void testAliencolor(){
 		a.setMyDecimalValue(-5);
 		//a.randomize();
 		int i = a.getMyDecimalValue();
-		System.out.println(i + " is the i value");
 		board.addAlien(a);
 		board.checkInput(i);
-		System.out.println(p.getScore() + " is the score");
 		assertEquals(p.getScore(), score+i);
 		board.addAlien(a);
 		//board.checkInput(i+1);
