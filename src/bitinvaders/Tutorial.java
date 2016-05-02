@@ -39,7 +39,7 @@ public class Tutorial extends JDialog {
 		setSize(300,500);
 		setTitle("Tutorial");
 		setLayout(new GridLayout(2,0));
-		JLabel imgLabel = new JLabel(new ImageIcon("images/TutorialImageSmall.png"));
+		JLabel imgLabel = new JLabel(new ImageIcon(BitInvaders.class.getResource("/spacepix/TutorialImageSmall.png"))); 
 		add(imgLabel);
 		JPanel io = new JPanel();
 		io.setLayout(new GridLayout(2,0));
