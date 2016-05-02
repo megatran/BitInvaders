@@ -3,6 +3,7 @@ package InvaderTests;
 import static org.junit.Assert.*;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Queue;
 
 import javax.swing.ImageIcon;
@@ -130,5 +131,89 @@ public void testAliencolor(){
 		assertTrue(board.getPlayer().isDead());
 		
 	}
+	
+	@Test	
+	public void testSpeedStages(){
+		//test that speed scales correctly with id
+		board.setId(0);
+		board.makeAliens();
+		Queue<BitAlien> qu = board.getAlienQueue();
+		if (!qu.isEmpty()){
+			assertTrue(qu.element().getSpeed() == 0);
+			}
+		board.setId(5);
+		board.clearAlienQueue();
+		board.makeAliens();
+		Queue<BitAlien> qu1 = board.getAlienQueue();
+		if (!qu.isEmpty()){
+		assertTrue(qu1.element().getSpeed() == 10);
+		}
+		board.setId(10);
+		board.clearAlienQueue();
+
+		board.makeAliens();
+		Queue<BitAlien> qu2 = board.getAlienQueue();
+		if (!qu.isEmpty()){
+			assertTrue(qu2.element().getSpeed() == 15);
+			}
+		board.setId(15);
+		//board.getAlienQueue().clear();
+		board.clearAlienQueue();
+		board.makeAliens();
+		Queue<BitAlien> qu3 = board.getAlienQueue();
+		if (!qu.isEmpty()){
+			assertTrue(qu3.element().getSpeed() == 20);
+		}
+	}
+	
+	@Test	
+	public void testLifeCount(){
+		board = new Board();
+		board.getPlayer().updateLife(1);
+		assertTrue(board.getPlayer().getNumLives() == 4);
+		board.getPlayer().updateLife(-1);
+		assertTrue(board.getPlayer().getNumLives() == 3);
+		board.getPlayer().updateLife(-1);
+		assertTrue(board.getPlayer().getNumLives() == 2);
+		board.getPlayer().updateLife(-1);
+		assertTrue(board.getPlayer().getNumLives() == 1);
+		board.getPlayer().updateLife(-1);
+		assertTrue(board.getPlayer().getNumLives() == 0);
+		board.getPlayer().updateLife(-1);
+		assertTrue(board.getPlayer().isDead());
+		
+	}
+		
+		
+	
+	
+	
+		
+//		board.setId(0);
+//		board.makeAliens();
+//		Queue<BitAlien> qu = board.getAlienQueue();
+//		ArrayList<SpecialBitAlien> su = board.getSpecialList();
+//		assertTrue(qu.element().getSpeed() == 0);
+//		qu.remove();
+//		su.clear();
+//		board.setId(5);
+//		board.makeAliens();
+//		qu = board.getAlienQueue();
+//		su = board.getSpecialList();
+//		assertTrue(qu.element().getSpeed() == 5 || su.get(0).getSpeed() == 5);
+//		qu.remove();
+//		su.clear();
+//		board.setId(10);
+//		board.makeAliens();
+//		qu = board.getAlienQueue();
+//		assertTrue(qu.element().getSpeed() == 15);
+////		BitInvaders invaders1 = new BitInvaders();
+////		board=invaders1.getBoard();
+////		board.setId(10);
+////		board.makeAliens();
+////		Queue<BitAlien> qu2 = board.getAlienQueue();
+////		assertTrue(qu2.element().getSpeed() == 15);
+		
+		
 }
 

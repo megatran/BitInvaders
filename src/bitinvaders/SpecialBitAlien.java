@@ -127,4 +127,8 @@ public class SpecialBitAlien extends Sprite{
 		System.out.println("topDec = " + topDecimalValue);
 		System.out.println("botDec = " + botDecimalValue);
 	}
+
+	public int getSpeed() {
+		return speed;
+	}
 }

@@ -168,7 +168,12 @@ public class BitAlien extends Sprite {
 			g.setColor(color);
 			g.drawString(myBits, x + OFFSET, y + HEIGHT - OFFSET);
 		}
+		
+	
 
+	}
+	public int getSpeed() {
+		return speed;
 	}
 
 //	@Override
