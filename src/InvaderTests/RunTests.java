@@ -4,9 +4,14 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Queue;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 
 import org.junit.BeforeClass;
@@ -88,6 +93,16 @@ public void testAliencolor(){
 		//Shot shot = new Shot(0, 0);
 		//if(shot.getImage() != null)
 		//	assertTrue("This is true", true);
+	}
+	
+	@Test
+	public void testSound() throws UnsupportedAudioFileException, IOException {
+		// board was "this", might have to change.
+		AudioInputStream ii = AudioSystem.getAudioInputStream(board.getClass().getResource("/spacepix/yugiMusic.wav"));
+		BitAlien alien = new BitAlien(0);
+		AudioFormat audioFormat = ii.getFormat();
+		if(ii.getFormat() != null)
+			assertTrue("This is true", true);
 	}
 	
 	@Test
