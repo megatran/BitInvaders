@@ -104,20 +104,25 @@ public void testAliencolor(){
 		assertFalse(qu.contains(a));
 	}
 	
-//	@Test
-//	public void testInput(){
-//		Player p = board.getPlayer();
-//		int score = p.getScore();
-//		BitAlien a = new BitAlien(0);
-//		a.randomize();
-//		int i = a.getMyDecimalValue();
-//		board.addAlien(a);
-//		board.checkInput(i);
-//		assertEquals(p.getScore(), score+i);
-//		board.addAlien(a);
-//		board.checkInput(i+1);
-//		assertEquals(p.getScore(), score+i-5);
-//	}
+	@Test
+	public void testInput(){
+		Player p = board.getPlayer();
+		int score = p.getScore();
+		BitAlien a = new BitAlien(0);
+		a.setMyDecimalValue(-5);
+		//a.randomize();
+		int i = a.getMyDecimalValue();
+		System.out.println(i + " is the i value");
+		board.addAlien(a);
+		board.checkInput(i);
+		System.out.println(p.getScore() + " is the score");
+		assertEquals(p.getScore(), score+i);
+		board.addAlien(a);
+		//board.checkInput(i+1);
+		//assertEquals(p.getScore(), score+i-5);
+	}
+	
+	
 	@Test	
 	public void testGameOver(){
 		//test that Game Over displays correctly
