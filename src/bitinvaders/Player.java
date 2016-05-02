@@ -41,5 +41,8 @@ public class Player extends Sprite{
 	public boolean isDead(){
 		return death;
 	}
+	public void resetScore(){
+		this.score = 0;
+	}
 	
 }

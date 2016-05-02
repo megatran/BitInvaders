@@ -49,6 +49,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		timer.start();
 		alienQueue = new LinkedList<BitAlien>();		
 		player = new Player(0,0);
+		player.resetScore();
 		//testAlien = new BitAlien(10);
 		//alienQueue.add(testAlien);
 
@@ -101,7 +102,8 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 			if (found) {
 				System.out.println("You found " + keyTyped);
 				//increase player's score by the alien's decimal value
-				player.updateScore(keyTyped);
+				int rVal = keyTyped + 1;
+				player.updateScore(rVal);
 				repaint();
 			}
 		} else {
@@ -216,11 +218,11 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 
 	public void makeAliens(){
 
-		if(alienQueue.size() > 4 && specialList.size() < 1){
+		if(alienQueue.size() > 4 && specialList.size() < 1 && randomAdd(1,2)){
 			SpecialBitAlien special = new SpecialBitAlien(SPEED / 2);
 			specialList.add(special);
 		}
-		else if(randomAdd(1,4)){
+		else if(randomAdd(1,6)){
 			Random ran = new Random();
 			int i = getId();
 			System.out.print("id is" + getId());
