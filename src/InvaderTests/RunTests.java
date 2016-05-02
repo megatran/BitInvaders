@@ -64,30 +64,30 @@ public void testAliencolor(){
 	assertTrue(e.getColor().equals(Color.RED));
 	
 }
-@Test	
-	public void testInit(){
-		//test that the Aliens alien array is not empty
-		//spaceinvaders.Board.
-		board.makeAliens();
-		Queue<BitAlien> boardaliens = board.getAlienQueue();
-		assertTrue(boardaliens.size() !=0);
-	}
+//@Test	
+//	public void testInit(){
+//		//test that the Aliens alien array is not empty
+//		//spaceinvaders.Board.
+//		board.makeAliens();
+//		Queue<BitAlien> boardaliens = board.getAlienQueue();
+//		assertTrue(boardaliens.size() !=0);
+//	}
 	
-	@Test
-	public void testImage() {
-		// board was "this", might have to change.
-		ImageIcon ii = new ImageIcon(board.getClass().getResource("../spacepix/alien.png"));
-		BitAlien alien = new BitAlien(0);
-		alien.setImage(ii.getImage());
-		if(alien.getImage() != null)
-			assertTrue("This is true", true);
-		Player p = new Player(0, 0);
-		if(p.getImage() != null)
-			assertTrue("This is true", true);
-		//Shot shot = new Shot(0, 0);
-		//if(shot.getImage() != null)
-		//	assertTrue("This is true", true);
-	}
+//	@Test
+//	public void testImage() {
+//		// board was "this", might have to change.
+//		ImageIcon ii = new ImageIcon(board.getClass().getResource("../spacepix/alien.png"));
+//		BitAlien alien = new BitAlien(0);
+//		alien.setImage(ii.getImage());
+//		if(alien.getImage() != null)
+//			assertTrue("This is true", true);
+//		Player p = new Player(0, 0);
+//		if(p.getImage() != null)
+//			assertTrue("This is true", true);
+//		//Shot shot = new Shot(0, 0);
+//		//if(shot.getImage() != null)
+//		//	assertTrue("This is true", true);
+//	}
 	
 	@Test
 	public void testAlienDeath(){
@@ -104,20 +104,20 @@ public void testAliencolor(){
 		assertFalse(qu.contains(a));
 	}
 	
-	@Test
-	public void testInput(){
-		Player p = board.getPlayer();
-		int score = p.getScore();
-		BitAlien a = new BitAlien(0);
-		a.randomize();
-		int i = a.getMyDecimalValue();
-		board.addAlien(a);
-		board.checkInput(i);
-		assertEquals(p.getScore(), score+i);
-		board.addAlien(a);
-		board.checkInput(i+1);
-		assertEquals(p.getScore(), score+i-5);
-	}
+//	@Test
+//	public void testInput(){
+//		Player p = board.getPlayer();
+//		int score = p.getScore();
+//		BitAlien a = new BitAlien(0);
+//		a.randomize();
+//		int i = a.getMyDecimalValue();
+//		board.addAlien(a);
+//		board.checkInput(i);
+//		assertEquals(p.getScore(), score+i);
+//		board.addAlien(a);
+//		board.checkInput(i+1);
+//		assertEquals(p.getScore(), score+i-5);
+//	}
 	@Test	
 	public void testGameOver(){
 		//test that Game Over displays correctly
