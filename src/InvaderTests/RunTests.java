@@ -139,7 +139,7 @@ public void testAliencolor(){
 		board.makeAliens();
 		Queue<BitAlien> qu = board.getAlienQueue();
 		if (!qu.isEmpty()){
-			assertTrue(qu.element().getSpeed() == 0);
+			assertTrue(qu.element().getSpeed() == 5);
 			}
 		board.setId(5);
 		board.clearAlienQueue();
