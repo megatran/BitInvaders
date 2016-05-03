@@ -3,6 +3,7 @@ package bitinvaders;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -45,7 +46,9 @@ public class Tutorial extends JDialog {
 		JPanel io = new JPanel();
 		io.setLayout(new GridLayout(2,0));
 		textarea = new JTextArea(text[i]);
+		textarea.setWrapStyleWord(true);
 		textarea.setLineWrap(true);
+		textarea.setBorder(new EmptyBorder(10,10,10,10));
 		textarea.setEditable(false);
 		io.add(textarea);
 		JPanel ioo = new JPanel();
