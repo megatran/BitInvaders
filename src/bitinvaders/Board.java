@@ -175,7 +175,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		pause();
 		String s1 = (String)JOptionPane.showInputDialog(
 				null,
-				"You earn " + finalResult + "point(s)! Would you like to restart?",
+				"You earn " + finalResult + " point(s)! Would you like to restart?",
 				"Game over!",
 				JOptionPane.YES_NO_OPTION,
 				null,
