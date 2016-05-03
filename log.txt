@@ -1,0 +1,449 @@
+We did a lot of pair programming
+
+commit c6b90921c7402a77c435a839dacab51129f909d1
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 22:54:40 2016 -0600
+
+    changed to higher quality music
+
+commit 6d9b6665d4f59d2a34a12787c17623f7949656f8
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 22:31:11 2016 -0600
+
+    passed test input test
+
+commit c28c557cb0711889e3290bc68277f714110f669e
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 22:18:20 2016 -0600
+
+    failed test input test
+
+commit 8ff9a04fb25084d753ed9a8238b673c3aa49d417
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 18:45:41 2016 -0600
+
+    added final score
+
+commit 4dea51c7b8bdddf0f76c9222790e58883dfdbb57
+Merge: bdc9965 7b72db3
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 18:38:45 2016 -0600
+
+    Merge branch 'master' of https://github.com/megatran/BitInvaders
+
+commit bdc99655eb0d8fad56d1c40d5615fdddf9952f7f
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 18:38:12 2016 -0600
+
+     fixed score update error
+
+commit 7b72db39350f31487fb348c3be5ff2cf83e06dd5
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Mon May 2 18:35:35 2016 -0600
+
+    Made tutorial pretty
+
+commit 56fd0024ef7c7839c0aad080b81175304bbaefb9
+Merge: af97010 e9594c6
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Mon May 2 18:23:35 2016 -0600
+
+    merge
+
+commit af970102f688fc75b50ee68821f5f806014a3537
+Merge: e3d1be8 23dbfbc
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Mon May 2 18:17:44 2016 -0600
+
+    Merge branch 'master' of https://github.com/megatran/BitInvaders
+
+commit e3d1be8e258d6f3f21cab86adddb6b46e614aee8
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Mon May 2 18:16:47 2016 -0600
+
+    New tutorial image, tutorial in menu, refocus cursor
+
+commit e9594c64e04297d93f9bd44712260802cd1392ae
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 17:20:54 2016 -0600
+
+    added tutorial pop up when user first play
+
+commit 23dbfbcebde7827befc561eb9e5a642b88f8c983
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Mon May 2 16:09:06 2016 -0600
+
+    Added and passed sound test
+
+commit 1ab827e3fe14071780a63fffc803af1439a03d45
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Mon May 2 16:04:56 2016 -0600
+
+    Passed and readded old test image test
+
+commit 487cad36c62d25a7919709b300b8e9c057c796c4
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Mon May 2 15:57:22 2016 -0600
+
+    Readded input test
+
+commit 76943e6407f0eef995519b6d913044300a3507c5
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Mon May 2 15:45:09 2016 -0600
+
+    Zero now gives 1 point
+
+commit e03be57689f751967a097cacea3276618b55b5ce
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 15:33:31 2016 -0600
+
+    fixed music not playing in jar
+
+commit 122e02a487448be2c81d3f7e3adb000183c904a4
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Mon May 2 15:22:22 2016 -0600
+
+    Removed tests that were no longer relevant
+
+commit 8516ce39f2cc73496c5f93193ffd805ca7373772
+Merge: 30ca39a ab42029
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 15:21:02 2016 -0600
+
+    Merge branch 'master' of https://github.com/megatran/BitInvaders
+
+commit 30ca39a4418df405dd963af299c6dd6c69b7b6f3
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Mon May 2 15:20:14 2016 -0600
+
+    fixed resource picture in tutorial class
+
+commit ab420297d1768fca2855d86fdb6ac7537406b44a
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Mon May 2 15:14:41 2016 -0600
+
+    Speed test now passes
+
+commit 0c151e0babd572741a167b0185828d0f3f862124
+Author: Robert Rippetoe <rkrippetoe@gmail.com>
+Date:   Sun May 1 22:29:57 2016 -0500
+
+    Added speed test and lives test
+
+commit bc6cd1621a3dd78c7cc5fe0c56677278867a79be
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sun May 1 15:41:41 2016 -0600
+
+    Aliens now speed up after killing 5 of them. Resets speed properly.
+
+commit 123841851dff8b45b871ceedfb95179ba6099134
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sun May 1 15:14:27 2016 -0600
+
+    Fixed problem where each alien subtracted multiple lives
+
+commit 4042847e75926fbadd1b7f01f5b1f01b53fea847
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sat Apr 30 22:33:05 2016 -0600
+
+    added music, fixed game gui, updated thread logic
+
+commit 8433eb4e52a927c0f800b935cef46f6041f1afc6
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 14:27:53 2016 -0600
+
+    Fixing speeds
+
+commit 122d5bb08ec6fb66cf9b99d0312383a72fc1b254
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 14:15:33 2016 -0600
+
+    Should be all working
+
+commit 0377f07183451d7e989463ea5ff62c6303a52a19
+Merge: 95855f9 8566f7b
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 14:14:25 2016 -0600
+
+    Fixing merge
+
+commit 95855f96333a047282df5ffb8070905e81d6b564
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 14:01:14 2016 -0600
+
+    fixed reset game
+
+commit 8566f7b284a278492a1f9c6955c4b1a5426ea67f
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 13:49:30 2016 -0600
+
+    No longer allows entries while game is paused
+
+commit ce8b07d553271d7e3a450c9edb9f3737f471fd33
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 13:44:01 2016 -0600
+
+    Tutorial now displays as a JDialog
+
+commit 14eed6aeee07e9194361cbda1d05a113f138d954
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 13:01:20 2016 -0600
+
+    Changed tutorial to explain alien types, Also, more tests
+
+commit 8a64540304204a7210866b75c7db3929c33bafb1
+Merge: e9003a6 6617536
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 12:35:53 2016 -0600
+
+    merge
+
+commit e9003a6737bb02e7479d49bdf9444457b83f7807
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 12:33:17 2016 -0600
+
+    added tutorial
+
+commit 28ca329057f49f9bd1713ff7bdf0791b2211a5fb
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 12:31:29 2016 -0600
+
+    Added tutorial
+
+commit 661753648272152fa41dee9aa2165041c65ec1ae
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Sat Apr 30 11:11:34 2016 -0600
+
+    special aliens now clear the board
+
+commit 4b50af058cb0e1e39df9815b8ec94768b225c732
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Sat Apr 30 11:04:46 2016 -0600
+
+    Added special Aliens
+
+commit 4ebaa76d4682fd53b05f05ef7dbc359acf7f870d
+Merge: 2a6eaae d35b750
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Sat Apr 30 10:58:10 2016 -0600
+
+    Added special aliens
+
+commit 2a6eaae4beaae73f59fca8b07e5ba99f0d7dfc5f
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Sat Apr 30 10:53:07 2016 -0600
+
+    finished specialAlien
+
+commit d35b750a9bcb9af4fa9082d6ab9b3bd0c2a7b513
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 10:50:32 2016 -0600
+
+    Another attempt at restarting with dailog properly
+
+commit 461735c3b72c01e4bdcad29a5eb8318ab46b49fc
+Merge: 447c101 efd9f75
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 10:24:21 2016 -0600
+
+    merge
+
+commit 447c101348b25a43ca62600147c17a8ed2fb5851
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 10:21:43 2016 -0600
+
+    New alien colors/speeds
+
+commit aee8f140efbab19dc1798b82a956eeaa1e71a1c0
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Sat Apr 30 10:16:38 2016 -0600
+
+    moved locatrion of the score and pause, cursor begins in boz
+
+commit efd9f758762e62e591011c50d5b77e82e8e7c4d1
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sat Apr 30 09:53:58 2016 -0600
+
+    Game now restarts properly if yes ending option is selected.
+
+commit 6b8f8117756539ae75f05ef7ff127740544331a3
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Thu Apr 28 11:21:08 2016 -0600
+
+    updated name
+
+commit 8e8cde6713d7c5f9e07c75165603850ed47ce9d0
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Tue Apr 26 15:17:21 2016 -0600
+
+    Added a pause/continur button
+
+commit 7ffc0ef2b01ac86b7dc50c2a77e111d2cc16f4fb
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Tue Apr 26 14:45:42 2016 -0600
+
+    Nevermind, apparently there was a factor of randomness in whether the tests passed, but they should pass now
+
+commit f85bbdc168bd548d8dcacb6cf62f0905d6973c85
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Tue Apr 26 14:33:30 2016 -0600
+
+    all tests pass
+
+commit a4a836de39c56a2b9cdf81cf9bf8b6586d6d7014
+Merge: 9378e1b a212c8f
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Tue Apr 26 14:05:46 2016 -0600
+
+    merge issues?
+
+commit 9378e1bf4bf04f54d95002024bffd7f677016303
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Tue Apr 26 12:19:18 2016 -0600
+
+    More tests
+
+commit a212c8f6423559af94a17f7722a60e3fb9c76539
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Tue Apr 26 12:09:32 2016 -0600
+
+    Working on new game Dialog
+
+commit d0f65c54add12161de58033b7fbf7dce344eefe9
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Mon Apr 25 21:01:34 2016 -0600
+
+    Changed input tests and alien death test
+
+commit 86056b7e1524dbd2f4152a8c40892ab060738768
+Author: rkrippetoe <rkrippetoe@gmail.com>
+Date:   Sun Apr 24 16:39:54 2016 -0600
+
+    Lives now register falling aliens.
+
+commit 3e242bd05077f1c22228eef42ea0279e976f1369
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sun Apr 24 15:29:11 2016 -0600
+
+    fixed game name
+
+commit 4ba78015fb38ad991824a8dd2ac4d9339cc7bc22
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sat Apr 23 11:52:08 2016 -0600
+
+    added updating score when user enters the right or wrong numbers. Update life
+
+commit e15ff1a595a22e1ca57fcfa5c140f4f63529f98d
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sat Apr 23 11:33:12 2016 -0600
+
+    added feature that remove alien when user enters its correct value
+
+commit 8d4911d737ed65c99eb525114518993f918115b8
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sat Apr 23 11:23:33 2016 -0600
+
+    added checkInput method to compare user input with alien real value
+
+commit b7de24ff5e6b556116e6b555b48a23b79523e717
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Sat Apr 23 10:11:02 2016 -0600
+
+    change username AdmistratorMS to Nhan Tran
+
+commit eaf94cb2816c9c66b86ea82b8c6aaf4893a7cad6
+Author: Administrator MS <Administrator MS>
+Date:   Sat Apr 23 10:07:58 2016 -0600
+
+    implemented userInput to only accept Numbers! Restructured game and deleted unncessary files
+
+commit 51f5a7341c111c3236bd23ed2f2400734235236e
+Author: Nhan Tran <nhantrantnt@gmail.com>
+Date:   Fri Apr 22 16:53:11 2016 -0600
+
+    added main gui and action listener
+
+commit 443c4672cd2a65a99109f091ecbb54fd6214dc9a
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Fri Apr 22 16:28:13 2016 -0600
+
+    Aliens are now randomly spawning
+
+commit 1149e1e1509f885d76c74456c16519e9c4636844
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Fri Apr 22 15:52:27 2016 -0600
+
+    Improving gui, working on alien / more gui
+
+commit 8cee26dadbbf0f9462ff26e10571e150d7a8a7cc
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Fri Apr 22 15:31:44 2016 -0600
+
+    First alien drawn, working on more
+
+commit a4d98453972b9c6924bb5c9b028b1f3babb29b77
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Fri Apr 22 13:51:41 2016 -0600
+
+    Have the timer working, trying to get the alien to draw
+
+commit c63f1102988c2e10d19bab7e39c98a8b4531f2fb
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Thu Apr 21 12:15:01 2016 -0600
+
+    Added all the up to date tests
+
+commit 309f9a87e65a8883c4653bb318155a5f3aef76d1
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Thu Apr 21 12:06:27 2016 -0600
+
+    added alien movement test
+
+commit 21a99b68a4f9cb4314caae9882561d537c36009a
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Thu Apr 21 11:52:17 2016 -0600
+
+    wrote alien init tests and game over test
+
+commit 6d2aa550228af492c9725a7e3ded74b06843a4ba
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Thu Apr 21 11:31:10 2016 -0600
+
+    pictures
+
+commit 6bef24db6215eacbe218cdbf4053f1164b11e288
+Author: John Galbavy <jgalbavy@mymail.mines.edu>
+Date:   Thu Apr 21 11:30:37 2016 -0600
+
+    Image Tests
+
+commit c4b2e9a12c78a233b7334dc7862bdf94b1354d87
+Author: Karen Chen <kchen@mymail.mines.edu>
+Date:   Thu Apr 21 11:26:50 2016 -0600
+
+    Test commit
+
+commit b5fd702137e7cf1af6e74d654e8618997df09151
+Merge: 35d2265 d551aac
+Author: Robert Rippetoe <rkrippetoe@gmail.com>
+Date:   Thu Apr 21 11:55:39 2016 -0500
+
+    Merge branch 'master' of https://github.com/megatran/BitInvaders
+
+commit 35d22650a7e85bb3e6823363bc724b394dc63a18
+Author: Robert Rippetoe <rkrippetoe@gmail.com>
+Date:   Thu Apr 21 11:52:07 2016 -0500
+
+    First Commit
+
+commit d551aac4337432d92f6a27adbb0ad088d73358bc
+Author: Administrator MS <Administrator MS>
+Date:   Thu Apr 21 02:35:58 2016 -0600
+
+    basic setup
+
+commit cb345613b1718c41f6ce646be55a1ed019747391
+Author: Administrator MS <Administrator MS>
+Date:   Thu Apr 21 02:29:33 2016 -0600
+
+    first commit

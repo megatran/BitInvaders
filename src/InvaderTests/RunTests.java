@@ -32,6 +32,7 @@ public class RunTests {
 	}
 
 	@Test
+	//make sure alien falling down correctly
 	public void testAlienmovement(){
 		BitAlien slow = new BitAlien(10);
 		int x = slow.getX();
@@ -48,6 +49,7 @@ public class RunTests {
 	}
 
 	@Test 
+	//test the pause functionality
 	public void pauseContinue(){
 		BitAlien a = new BitAlien(10);
 		board.addAlien(a);
@@ -57,6 +59,7 @@ public class RunTests {
 		assertTrue(a.isVisible());
 	}
 	@Test
+	//test colors with associated speeds
 	public void testAliencolor(){
 		BitAlien a = new BitAlien(5);
 		assertTrue(a.getColor().equals(Color.cyan));
@@ -70,16 +73,9 @@ public class RunTests {
 		assertTrue(e.getColor().equals(Color.RED));
 
 	}
-	//@Test	
-	//	public void testInit(){
-	//		//test that the Aliens alien array is not empty
-	//		//spaceinvaders.Board.
-	//		board.makeAliens();
-	//		Queue<BitAlien> boardaliens = board.getAlienQueue();
-	//		assertTrue(boardaliens.size() !=0);
-	//	}
 
 	@Test
+	//test loading image correctly
 	public void testImage() {
 		// board was "this", might have to change.
 		Image ii = new ImageIcon(board.getClass().getResource("/spacepix/boardBackground1.png")).getImage();
@@ -96,6 +92,7 @@ public class RunTests {
 	}
 
 	@Test
+	//make sure sound is loaded and plays
 	public void testSound() throws UnsupportedAudioFileException, IOException {
 		// board was "this", might have to change.
 		AudioInputStream ii = AudioSystem.getAudioInputStream(board.getClass().getResource("/spacepix/yugiMusic.wav"));
@@ -106,6 +103,7 @@ public class RunTests {
 	}
 
 	@Test
+	//test when user guess the right value to destroy alien
 	public void testAlienDeath(){
 		BitAlien a = new BitAlien(0);
 		a.randomize();
@@ -121,6 +119,7 @@ public class RunTests {
 	}
 
 	@Test
+	//checking if user input matches with alien's value
 	public void testInput(){
 		Player p = board.getPlayer();
 		int score = p.getScore();
@@ -135,13 +134,14 @@ public class RunTests {
 			System.out.println(b.getMyDecimalValue());
 		}
 		assertEquals(5, score+i);
-//		board.addAlien(a);
+		//		board.addAlien(a);
 		//board.checkInput(i+1);
 		//assertEquals(p.getScore(), score+i-5);
 	}
 
 
 	@Test	
+	//test life adjustment and game over
 	public void testGameOver(){
 		//test that Game Over displays correctly
 		board.getPlayer().updateLife(1);
@@ -156,6 +156,7 @@ public class RunTests {
 	}
 
 	@Test	
+	//test incremental speed depend on stage
 	public void testSpeedStages(){
 		//test that speed scales correctly with id
 		board.setId(0);
@@ -190,6 +191,7 @@ public class RunTests {
 	}
 
 	@Test	
+	//test life decreasing if alien touches bottom/dies
 	public void testLifeCount(){
 		board = new Board();
 		board.getPlayer().updateLife(1);
@@ -206,37 +208,5 @@ public class RunTests {
 		assertTrue(board.getPlayer().isDead());
 
 	}
-
-
-
-
-
-
-	//		board.setId(0);
-	//		board.makeAliens();
-	//		Queue<BitAlien> qu = board.getAlienQueue();
-	//		ArrayList<SpecialBitAlien> su = board.getSpecialList();
-	//		assertTrue(qu.element().getSpeed() == 0);
-	//		qu.remove();
-	//		su.clear();
-	//		board.setId(5);
-	//		board.makeAliens();
-	//		qu = board.getAlienQueue();
-	//		su = board.getSpecialList();
-	//		assertTrue(qu.element().getSpeed() == 5 || su.get(0).getSpeed() == 5);
-	//		qu.remove();
-	//		su.clear();
-	//		board.setId(10);
-	//		board.makeAliens();
-	//		qu = board.getAlienQueue();
-	//		assertTrue(qu.element().getSpeed() == 15);
-	////		BitInvaders invaders1 = new BitInvaders();
-	////		board=invaders1.getBoard();
-	////		board.setId(10);
-	////		board.makeAliens();
-	////		Queue<BitAlien> qu2 = board.getAlienQueue();
-	////		assertTrue(qu2.element().getSpeed() == 15);
-
-
 }
 

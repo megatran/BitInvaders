@@ -43,67 +43,65 @@ public class BitInvaders extends JFrame implements Commons {
 		GameMusic backgroundMusic = new GameMusic();
 		backgroundMusic.play();
 		board = new Board();
-   //     setContentPane(new JLabel(new ImageIcon(BitInvaders.class.getResource("/spacepix/boardBackground1.png"))));
 		//only show when player click Play to switch from intro panel to board panel
 		board.setVisible(false);
 		board.pause();
-        setTitle("Bit Invaders");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        bottomPanel = createBottomPanel();
-        scorePanel = makeScore();
-        scorePanel.setOpaque(false);
+		setTitle("Bit Invaders");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		bottomPanel = createBottomPanel();
+		scorePanel = makeScore();
+		scorePanel.setOpaque(false);
 
-        getContentPane().add(bottomPanel, BorderLayout.SOUTH);
-        getContentPane().add(scorePanel, BorderLayout.NORTH);
-        
-        gameIntro = new JPanel();
-        getContentPane().add(gameIntro, BorderLayout.CENTER);
-        gameIntro.setLayout(null);
-        gameIntro.setVisible(true);
-        bottomPanel.setVisible(false);
-        scorePanel.setVisible(false);
-        
-        BufferedImage playBttnIcon = null;
+		getContentPane().add(bottomPanel, BorderLayout.SOUTH);
+		getContentPane().add(scorePanel, BorderLayout.NORTH);
+
+		gameIntro = new JPanel();
+		getContentPane().add(gameIntro, BorderLayout.CENTER);
+		gameIntro.setLayout(null);
+		gameIntro.setVisible(true);
+		bottomPanel.setVisible(false);
+		scorePanel.setVisible(false);
+
+		BufferedImage playBttnIcon = null;
 		try {
 			playBttnIcon = ImageIO.read(BitInvaders.class.getResource("/spacepix/buttonPlaySmall.png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Can't find button image");
 		}
-        JButton btnPlay = new JButton(new ImageIcon(playBttnIcon));
-        JButton tutBut = new JButton("Tutorial");
-        btnPlay.setBorder(BorderFactory.createEmptyBorder());
-        btnPlay.setContentAreaFilled(false);
-        btnPlay.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		gameIntro.setVisible(false);
-                bottomPanel.setVisible(true);
-                scorePanel.setVisible(true);
-                getContentPane().add(board);
-        		board.setVisible(true);
-                input.requestFocus();
-        		board.unpause();
-        	}
-        });
-        tutBut.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-			new Tutorial();
-		}
-        });
-        btnPlay.setBounds(119, 333, 109, 41);
-        gameIntro.add(btnPlay);
-        JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon(BitInvaders.class.getResource("/spacepix/bitInvaders.jpg")));
-        lblNewLabel.setBounds(-3, -32, 346, 550);
-        gameIntro.add(lblNewLabel);
-        setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
-        pack();
-        setVisible(true);
-        setResizable(false);
-        
-        
-        JMenuBar bar = new JMenuBar();
+		JButton btnPlay = new JButton(new ImageIcon(playBttnIcon));
+		JButton tutBut = new JButton("Tutorial");
+		btnPlay.setBorder(BorderFactory.createEmptyBorder());
+		btnPlay.setContentAreaFilled(false);
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				gameIntro.setVisible(false);
+				bottomPanel.setVisible(true);
+				scorePanel.setVisible(true);
+				getContentPane().add(board);
+				board.setVisible(true);
+				input.requestFocus();
+				board.unpause();
+			}
+		});
+		tutBut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Tutorial();
+			}
+		});
+		btnPlay.setBounds(119, 333, 109, 41);
+		gameIntro.add(btnPlay);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(BitInvaders.class.getResource("/spacepix/bitInvaders.jpg")));
+		lblNewLabel.setBounds(-3, -32, 346, 550);
+		gameIntro.add(lblNewLabel);
+		setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
+		pack();
+		setVisible(true);
+		setResizable(false);
+
+
+		JMenuBar bar = new JMenuBar();
 		setJMenuBar(bar);
 		JMenu file = new JMenu("File");
 		bar.add(file);
@@ -126,8 +124,8 @@ public class BitInvaders extends JFrame implements Commons {
 		}
 		exit.addActionListener(new ExitListener());
 		tutorial.addActionListener(new TutorialListener());
-		
-    }
+
+	}
 
 	private JPanel createBottomPanel() {
 		JPanel panelBottom = new JPanel();
@@ -146,7 +144,7 @@ public class BitInvaders extends JFrame implements Commons {
 		panelBottom.add(userInput);
 		panelBottom.add(pause);
 		panelBottom.add(tutorial);
-		
+
 		class PauseListener implements ActionListener
 		{
 			public void actionPerformed(ActionEvent e) {
@@ -174,7 +172,6 @@ public class BitInvaders extends JFrame implements Commons {
 		//the user input will accept numeric input from the user when he/she presses 'Enter'
 		userInput.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				//System.out.println("Enter Pressed: "+userInput.getText());
 				if (!userInput.getText().isEmpty()){
 					board.checkInput(Integer.parseInt(userInput.getText()));
 				}
@@ -182,7 +179,7 @@ public class BitInvaders extends JFrame implements Commons {
 				userInput.setText("");
 			}
 		});
-		
+
 		return panelBottom;
 	}
 	private JPanel makeScore(){
@@ -197,57 +194,50 @@ public class BitInvaders extends JFrame implements Commons {
 		scorePan.add(scoreOutput);
 		return scorePan;
 	}
-	
+
 
 	public static void displayLife(int life){
 		lifeDisplay.setText(Integer.toString(life));
 	}
-	
-	
-	
+
+
+
 	public Board getBoard() {
 		return board;
 	}
-	
-	
 
-	
 	public void setBoard(Board b){
 		board=b;
 	}
-	
+
 	public static void setHasShownDialogueTrue() {
 		hasShownDialogue = true;
 	}
-	
-    public static boolean isGameOver() {
+
+	public static boolean isGameOver() {
 		return gameOver;
 	}
-    
-    public void learnToPlayPopup() {
-    	   int confirm = JOptionPane.showConfirmDialog (this, "Do you want to see the tutorials first?", "Learn to Play?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    	   
-    	   if (confirm == JOptionPane.YES_OPTION) {
-    	      Tutorial firstTut = new Tutorial();
-    	      firstTut.setVisible(true);
-    	   }
-    }
+
+	public void learnToPlayPopup() {
+		int confirm = JOptionPane.showConfirmDialog (this, "Do you want to see the tutorials first?", "Learn to Play?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+		if (confirm == JOptionPane.YES_OPTION) {
+			Tutorial firstTut = new Tutorial();
+			firstTut.setVisible(true);
+		}
+	}
 
 	public static void main(String[] args) {
 		BitInvaders game = new BitInvaders();
-		game.learnToPlayPopup();
-		//JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
-        
-    }
+		game.learnToPlayPopup();      
+	}
 
 	public static void setGameOverTrue() {
 		gameOver = true;
-		
-	}
 
+	}
 
 	public static void setGameOver(boolean b) {
 		gameOver = b;
-		
 	}
 }

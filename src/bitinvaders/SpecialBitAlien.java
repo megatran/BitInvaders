@@ -79,44 +79,6 @@ public class SpecialBitAlien extends Sprite{
 //			BitInvaders.board.getPlayer().updateLife(-1);
 //			BitInvaders.displayLife();
 		}
-//		if (BitInvaders.board.getPlayer().getNumLives() <= 0 && !BitInvaders.isGameOver()){
-//			BitInvaders.setGameOverTrue();
-//			dying = true;
-////			String s = (String)JOptionPane.showConfirmDialog(
-////				    null,
-////				    "Would you like green eggs and ham?",
-////				    "An Inane Question",
-////				    JOptionPane.YES_NO_OPTION);
-//			Object[] possibilities = {"Yes", "No"};
-//			String s1 = (String)JOptionPane.showInputDialog(
-//			                    null,
-//			                    "Game over! Would you like to restart?",
-//			                    "BitInvaders",
-//			                    JOptionPane.YES_NO_OPTION,
-//			                    null,
-//			                    possibilities,
-//			                    "ham");
-//			//JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
-//			if ((s1 != null) && (s1.length() > 0)) {
-//			    if (s1 == "Yes"){
-//			    	BitInvaders.disposeJFrame(BitInvaders.getFrames());
-//			    	BitInvaders.board.alienQueue.clear();
-//			    	BitInvaders.board.specialList.clear();
-//			    	BitInvaders game = new BitInvaders();
-//			    	//setId(0);
-//			    	BitInvaders.setGameOver(false);
-//			    }
-//			    if (s1 == "No"){
-//			    	System.exit(dx);
-//			    }
-//			}
-//			else{
-//				System.exit(dx);
-//			}
-		
-//		if (dying) {
-//			JOptionPane.showMessageDialog(null,"You Die!"  +"!","Game Over!",JOptionPane.INFORMATION_MESSAGE);
-//		}
 	}
 	
 	public void printBits(){
