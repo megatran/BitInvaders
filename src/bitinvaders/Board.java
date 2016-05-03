@@ -25,6 +25,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	boolean boardGameOver = false;
 	private Image img = new ImageIcon(BitInvaders.class.getResource("/spacepix/boardBackground1.png")).getImage();
 	private Timer timer;
+	private int finalResult = 0;
 	public static final int SPEED = 20;
 	//delay changes the speed of the aliens falling
 	private final int DELAY = 500;
@@ -150,6 +151,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 	public void updatePlayerLife(){
 		if (player.getNumLives() == 0) {
+			finalResult = player.getScore();
 			pause();
 			boardGameOver = true;
 			//pause();
@@ -173,12 +175,13 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		pause();
 		String s1 = (String)JOptionPane.showInputDialog(
 				null,
-				"Game over! Would you like to restart?",
-				"BitInvaders",
+				"You earn " + finalResult + "point(s)! Would you like to restart?",
+				"Game over!",
 				JOptionPane.YES_NO_OPTION,
 				null,
 				possibilities,
 				"alien");
+		finalResult = 0;
 
 		if ((s1 != null) && (s1.length() > 0)) {
 			if (s1 == "Yes"){
