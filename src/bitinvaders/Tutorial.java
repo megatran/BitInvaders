@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Tutorial extends JDialog {
-	
+	private JLabel imglabel;
 	private JTextArea textarea;
 	private JTextField in;
 	String[] text= new String[10];{
@@ -31,16 +31,17 @@ public class Tutorial extends JDialog {
 	text[6] = "What is 1010 in decimal?";
 	text[7] = "What is 0011 in decimal?";
 	text[8] = "What is 0011 + 0011 in decimal?";
-	text[9] = "You are now ready to play! Cyan aliens fall slowly, so you will have more time to solve them. Green, yellow, and magenta aliens are faster. Red aliens are special! Add the two bits in a red alien to clear the board!";}
+	text[9] = "You are now ready to play! ";}
 	private int i = 0;
 	
 	public Tutorial(){
 		setVisible(true);
-		setSize(300,500);
+		setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
 		setTitle("Tutorial");
 		setLayout(new GridLayout(2,0));
-		JLabel imgLabel = new JLabel(new ImageIcon(BitInvaders.class.getResource("/spacepix/TutorialImageSmall.png"))); 
-		add(imgLabel);
+		imglabel = new JLabel("");
+		imglabel.setIcon(new ImageIcon(BitInvaders.class.getResource("/spacepix/TutorialImageSmall.png"))); 
+		add(imglabel);
 		JPanel io = new JPanel();
 		io.setLayout(new GridLayout(2,0));
 		textarea = new JTextArea(text[i]);
@@ -82,6 +83,11 @@ public class Tutorial extends JDialog {
 				i++;
 				in.setText("");
 				textarea.setText(text[i]);
+				if (i==9){
+					in.setVisible(false);
+					imglabel.setIcon(new ImageIcon(BitInvaders.class.getResource("/spacepix/alientut.png")));
+					
+				}
 			}
 		}
 		else if (i==9){

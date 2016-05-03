@@ -34,6 +34,7 @@ public class BitInvaders extends JFrame implements Commons {
 	private static boolean gameOver = false;
 	private JTextField input;
 	private JTextField scoreOutput;
+	private JButton pause;
 	private static boolean resetBoard = false;
 
 	public BitInvaders(){
@@ -70,6 +71,7 @@ public class BitInvaders extends JFrame implements Commons {
 			System.out.println("Can't find button image");
 		}
         JButton btnPlay = new JButton(new ImageIcon(playBttnIcon));
+        JButton tutBut = new JButton("Tutorial");
         btnPlay.setBorder(BorderFactory.createEmptyBorder());
         btnPlay.setContentAreaFilled(false);
         btnPlay.addActionListener(new ActionListener() {
@@ -79,8 +81,14 @@ public class BitInvaders extends JFrame implements Commons {
                 scorePanel.setVisible(true);
                 getContentPane().add(board);
         		board.setVisible(true);
+                input.requestFocus();
         		board.unpause();
         	}
+        });
+        tutBut.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+			new Tutorial();
+		}
         });
         btnPlay.setBounds(119, 333, 109, 41);
         gameIntro.add(btnPlay);
@@ -91,7 +99,6 @@ public class BitInvaders extends JFrame implements Commons {
         setPreferredSize(new Dimension(BOARD_WIDTH, BOARD_HEIGHT));
         pack();
         setVisible(true);
-        input.requestFocus();
         setResizable(false);
         
         
@@ -100,6 +107,8 @@ public class BitInvaders extends JFrame implements Commons {
 		JMenu file = new JMenu("File");
 		bar.add(file);
 		JMenuItem exit = new JMenuItem("Exit");
+		JMenuItem tutorial = new JMenuItem("Tutorial");
+		file.add(tutorial);
 		file.add(exit);
 		class ExitListener implements ActionListener
 		{
@@ -107,7 +116,15 @@ public class BitInvaders extends JFrame implements Commons {
 				System.exit(0);
 			}
 		}
+		class TutorialListener implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				board.pause();
+				pause.setText("Continue");
+				new Tutorial();
+			}
+		}
 		exit.addActionListener(new ExitListener());
+		tutorial.addActionListener(new TutorialListener());
 		
     }
 
@@ -117,6 +134,7 @@ public class BitInvaders extends JFrame implements Commons {
 		input = userInput;
 		JLabel lifeLabel = new JLabel("Life");
 		JButton pause = new JButton("Pause");
+		this.pause=pause;
 		JButton tutorial = new JButton("?");
 		lifeDisplay = new JTextField(2);
 		lifeDisplay.setEditable(false);
@@ -207,8 +225,6 @@ public class BitInvaders extends JFrame implements Commons {
 
 	public static void main(String[] args) {
 		BitInvaders game = new BitInvaders();
-		JOptionPane.showMessageDialog(game, "Convert the binary BitAliens to decimal to attack them.", "BitInvaders", JOptionPane.INFORMATION_MESSAGE);
-        
     }
 
 	public static void setGameOverTrue() {
