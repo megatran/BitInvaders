@@ -35,7 +35,7 @@ public class GameMusic implements Runnable
         AudioInputStream audioInputStream = null;
         try 
         {
-            audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResourceAsStream("/spacepix/yugiMusic.wav"));
+            audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("/spacepix/yugiMusic.wav"));
         } 
         catch (Exception e)
         {

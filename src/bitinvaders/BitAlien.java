@@ -66,6 +66,9 @@ public class BitAlien extends Sprite {
 			myBits = t + temp;
 		}
 	}
+	public void setMyDecimalValue(int myDecimalValue) {
+		this.myDecimalValue = myDecimalValue;
+	}
 	public void setMyBits(String t){
 		myBits = t;
 	}
