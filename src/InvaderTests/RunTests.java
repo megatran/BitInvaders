@@ -128,10 +128,14 @@ public class RunTests {
 		a.setMyDecimalValue(5);
 		//a.randomize();
 		int i = a.getMyDecimalValue();
+		System.out.println(i);
 		board.addAlien(a);
 		board.checkInput(i);
-		assertEquals(p.getScore(), score+i);
-		board.addAlien(a);
+		for (BitAlien b : board.getAlienQueue()) {
+			System.out.println(b.getMyDecimalValue());
+		}
+		assertEquals(5, score+i);
+//		board.addAlien(a);
 		//board.checkInput(i+1);
 		//assertEquals(p.getScore(), score+i-5);
 	}

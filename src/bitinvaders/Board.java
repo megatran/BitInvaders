@@ -74,7 +74,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void checkInput(int keyTyped) {
-		boolean found = false;
 		BitInvaders.scoreOutput.setText(Integer.toString(player.getScore()));
 		if (timer.isRunning()){
 			
@@ -99,7 +98,6 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 				if (keyTyped == s.getTotalDecimalValue()) {
 					specialList.remove(s);
 					alienQueue.clear();
-					found = true;
 					break;
 				}
 			}
