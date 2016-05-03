@@ -41,6 +41,8 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void initBoard(){
+		player = new Player(0,0);
+		player.resetScore();
 		setId(0);
 		boardGameOver = false;
 		// adding timer
@@ -48,8 +50,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		timer = new Timer(DELAY, this);
 		timer.start();
 		alienQueue = new LinkedList<BitAlien>();		
-		player = new Player(0,0);
-		player.resetScore();
+
 		//testAlien = new BitAlien(10);
 		//alienQueue.add(testAlien);
 
@@ -72,18 +73,22 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void checkInput(int keyTyped) {
+		boolean found = false;
+		BitInvaders.scoreOutput.setText(Integer.toString(player.getScore()));
 		if (timer.isRunning()){
-			boolean found = false;
-
+			
+			
 			for (BitAlien a: alienQueue) {
 				if (keyTyped == a.getMyDecimalValue()) {
 					setId(getId() + 1);
 					alienQueue.remove(a);
-					found = true;
+					int rVal = keyTyped + 1;
+					player.updateScore(rVal);
+					System.out.println("SCORE IS: " +player.getScore());
+					repaint();
+
 					break;
-				} else {
-					found = false;
-				}
+				} 
 			}
 			for(SpecialBitAlien s: specialList){
 				if (s.dying){
@@ -95,23 +100,21 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 					alienQueue.clear();
 					found = true;
 					break;
-				} else {
-					found = false;
 				}
 			}
-			if (found) {
-				System.out.println("You found " + keyTyped);
-				//increase player's score by the alien's decimal value
-				int rVal = keyTyped + 1;
-				player.updateScore(rVal);
-				repaint();
-			}
-		} else {
-			//decrease player's score by that 
-			player.updateScore(-5);
-			System.out.println(keyTyped + " is INCORRECT");
+//			if (found) {
+//				System.out.println("You found " + keyTyped);
+//				//increase player's score by the alien's decimal value
+//				int rVal = keyTyped + 1;
+//				player.updateScore(rVal);
+//				System.out.println("SCORE IS: " +player.getScore());
+//				repaint();
+//			} else {
+//				//decrease player's score by that 
+//				player.updateScore(-5);
+//				System.out.println(keyTyped + " is INCORRECT");
+//			}
 		}
-
 
 	}
 
@@ -160,6 +163,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		}
 
 		BitInvaders.displayLife(player.getNumLives());
+		BitInvaders.scoreOutput.setText(Integer.toString(player.getScore()));
 	}
 
 	public void makeNewGame(){
@@ -192,6 +196,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	public void clearAliens(){
 		for (BitAlien a: alienQueue) {
 			if (a.dying && !a.hit){
+				
 				updatePlayerLife();
 				a.setHit(true);
 				a = null;
@@ -217,7 +222,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 	}
 
 	public void makeAliens(){
-
+		
 		if(alienQueue.size() > 4 && specialList.size() < 1 && randomAdd(1,2)){
 			SpecialBitAlien special = new SpecialBitAlien(SPEED / 2);
 			specialList.add(special);
@@ -225,7 +230,7 @@ public class Board extends JPanel implements ActionListener 	/*Runnable, Commons
 		else if(randomAdd(1,6)){
 			Random ran = new Random();
 			int i = getId();
-			System.out.print("id is" + getId());
+			//System.out.print("id is" + getId());
 			//generates a number between half of the aliens generated and the number of aliens generated
 			//i=ran.nextInt(i+1)+i/4;
 			//rounds up to the next 5

@@ -34,7 +34,7 @@ public class BitInvaders extends JFrame implements Commons {
 	private static boolean hasShownDialogue = false;
 	private static boolean gameOver = false;
 	private JTextField input;
-	private JTextField scoreOutput;
+	protected static JTextField scoreOutput;
 	private JButton pause;
 	private static boolean resetBoard = false;
 
