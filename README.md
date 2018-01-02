@@ -2,12 +2,12 @@
     <img src="/src/spacepix/bitInvaders.jpg" />
 </p>
 
-<br>
+<br />
 An interactive game to teach middle schoolers converting and adding binary numbers!
 Won 2nd place for interactive and educational game at Colorado School of Mines (Spring 2016)
-<br>
+<br />
 <img src="/src/spacepix/bitinvaders3.jpg" />
-<br>
+<br />
 Rule: Destroy the binary "invaders" by attacking their weakness--their hidden decimal values-- as fast as you can before they reach your base. As you progress in the game, the binary invaders will change color and also move at a much quicker speed. Solving the red invader binary addition problem will help clear all invaders on the current screen! What are you waiting for? Join me in the quest of protecting our planet Earth!
 
 ## Requirements
